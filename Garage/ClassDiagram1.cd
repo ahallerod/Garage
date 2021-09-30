@@ -11,7 +11,7 @@
     <Position X="8.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAgAAgAAAAAA=</HashCode>
-      <FileName>Fordon.cs</FileName>
+      <FileName>Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Garage.UI">
