@@ -7,7 +7,7 @@ namespace Garage
 {
     public class Garage
     {
-        public IEnumerable ParkedVehicles
+        public IEnumerable<Vehicle> ParkedVehicles
         {
             get => default;
             set
@@ -33,14 +33,14 @@ namespace Garage
             throw new System.NotImplementedException();
         }
 
-        public void AddVehicle()
+        public void AddVehicle(Vehicle vehicle)
         {
-            throw new System.NotImplementedException();
+            ParkedVehicles.Append<Vehicle>(vehicle);
         }
 
-        public void RemoveVehicle()
+        public void RemoveVehicle(Vehicle vehicle)
         {
-            throw new System.NotImplementedException();
+
         }
 
         public void SearchVehicle()
