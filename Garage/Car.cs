@@ -5,25 +5,9 @@ using System.Text;
 
 namespace Garage
 {
-    public class Vehicle
+    public class Car : Vehicle
     {
-        public int Color
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public int LicenceNumber
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public int NumberWheel
+        public int NumberDoor
         {
             get => default;
             set
