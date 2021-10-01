@@ -9,39 +9,44 @@ namespace Garage
     {
         public IEnumerable<Vehicle> ParkedVehicles
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
         }
 
-        public int MaxCapacity
+        public Garage()
         {
-            get => default;
-            set
-            {
-            }
+            ParkedVehicles = new List<Vehicle>();
+            MaxCapacity = 0;
         }
-
-        public void ListVehicles()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void ListTypeOfVehicles()
-        {
-            throw new System.NotImplementedException();
-        }
-
+        public int MaxCapacity { get; set; }        
+        
         public void AddVehicle(Vehicle vehicle)
         {
-            ParkedVehicles.Append<Vehicle>(vehicle);
+            ParkedVehicles = ParkedVehicles.Append(vehicle);
+            
         }
 
         public void RemoveVehicle(Vehicle vehicle)
         {
+            ParkedVehicles = ParkedVehicles.Where(v => v.LicenceNumber != vehicle.LicenceNumber);
+        }
+
+
+        public void ListVehicles()
+        {
+            Console.WriteLine("Cars Currently in the Garage:");
+            foreach(Vehicle vehicle in ParkedVehicles)
+            {
+                Console.Write($"regnr: {vehicle.LicenceNumber}\n");
+            }
+        }
+
+        public void ListTypeOfVehicles()
+        {
 
         }
+
+
 
         public void SearchVehicle()
         {
