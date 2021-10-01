@@ -12,13 +12,13 @@ namespace Garage
             get;
             set;
         }
+        public int MaxCapacity { get; set; }
 
         public Garage()
         {
             ParkedVehicles = new List<Vehicle>();
             MaxCapacity = 0;
         }
-        public int MaxCapacity { get; set; }        
         
         public void AddVehicle(Vehicle vehicle)
         {
@@ -30,20 +30,14 @@ namespace Garage
         {
             ParkedVehicles = ParkedVehicles.Where(v => v.LicenceNumber != vehicle.LicenceNumber);
         }
-
-
-        public void ListVehicles()
+        public List<Vehicle> ListVehicles()
         {
-            Console.WriteLine("Cars Currently in the Garage:");
-            foreach(Vehicle vehicle in ParkedVehicles)
-            {
-                Console.Write($"regnr: {vehicle.LicenceNumber}\n");
-            }
+            return ParkedVehicles.ToList();
         }
 
         public void ListTypeOfVehicles()
         {
-
+            //return ParkedVehicles.Where(v => v.)
         }
 
 
