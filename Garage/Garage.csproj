@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Vehicle\" />
+    <Compile Remove="Vehicle\**" />
+    <EmbeddedResource Remove="Vehicle\**" />
+    <None Remove="Vehicle\**" />
   </ItemGroup>
 
 </Project>
