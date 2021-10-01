@@ -7,20 +7,8 @@ namespace Garage
 {
     public class Car : Vehicle
     {
-        public int NumberDoor
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Make { get; set; }
 
-        public int Fuel
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string Model { get; set; }
     }
 }
