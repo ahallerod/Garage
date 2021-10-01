@@ -17,10 +17,9 @@ namespace Garage
 
         public int LicenceNumber
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+           
         }
 
         public int NumberWheel
