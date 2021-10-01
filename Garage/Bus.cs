@@ -7,12 +7,7 @@ namespace Garage
 {
     public class Bus : Vehicle
     {
-        public int Property
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int PassengerCapacity { get; set; }
+        public string SchoolBus { get; set; }
     }
 }

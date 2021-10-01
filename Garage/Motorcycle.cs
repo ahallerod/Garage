@@ -7,12 +7,8 @@ namespace Garage
 {
     public class Motorcycle : Vehicle
     {
-        public int Fuel
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int NumberMirror { get; set; }
+
+        public int YearModel { get; set; }
     }
 }

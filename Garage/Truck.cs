@@ -7,12 +7,7 @@ namespace Garage
 {
     public class Truck : Vehicle
     {
-        public int Property
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public decimal TruckLenght { get; set; }
+        public string LoadedWith { get; set; }
     }
 }

@@ -7,20 +7,8 @@ namespace Garage
 {
     public class Bicycle : Vehicle
     {
-        public int NumberMirror
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string IsMountainBike { get; set; }
 
-        public int Property
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string SuitableFor { get; set; }
     }
 }

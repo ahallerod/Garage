@@ -10,6 +10,6 @@ namespace Garage
         public string Color { get; set; }
         public string LicenceNumber { get; set; }
         public int NumberWheel { get; set; }
-        public int Fuel { get; set; }
+        public string Fuel { get; set; }
     }
 }
