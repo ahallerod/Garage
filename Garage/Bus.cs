@@ -7,13 +7,17 @@ namespace Garage
 {
     public class Bus : Vehicle
     {
-        public new const string Type = "Bus";
         public int PassengerCapacity { get; set; }
         public string SchoolBus { get; set; }
+        public Bus()
+        {
+            Type = TypeEnum.Bus;
+        }
 
         public override string ToString()
         {
-            return base.ToString() + $" Passerger Capacity: {PassengerCapacity}, SchoolBus: {SchoolBus}";
+            return base.ToString() + $" Passenger Capacity: {PassengerCapacity}" +
+                $"\n\tIs Schoolbus: {SchoolBus}";
         }
 
     }

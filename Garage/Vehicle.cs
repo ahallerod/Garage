@@ -7,7 +7,7 @@ namespace Garage
 {
     public class Vehicle
     {
-        public enum TypeEnum { Vehicle, Bicycle, Motorcycle, Truck, Bus }
+        public enum TypeEnum { Vehicle, Bicycle, Motorcycle, Car, Bus, Truck }   //{ Vehicle{0}, Bicycle{1}, Motorcycle{2}, Car{3}, Bus{4}, Truck{5} }
         public TypeEnum Type { get; set; }
         public string Color { get; set; }
         public string LicenceNumber { get; set; }
@@ -21,7 +21,12 @@ namespace Garage
 
         public override string ToString()
         {
-            return $"Type: {Type}, Color:{Color}, Licence Number{LicenceNumber}, Number of wheels:{NumberWheel}, Fuel:{Fuel}";
+            return $"-----" +
+                $"\n\tType: {Type}" +
+                $"\n\tColor: {Color}" +
+                $"\n\tLicence Number: {LicenceNumber}" +
+                $"\n\tNumber of wheels: {NumberWheel}" +
+                $"\n\tFuel: {Fuel}";
         }
     }
 }

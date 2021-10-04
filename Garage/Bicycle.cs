@@ -15,9 +15,12 @@ namespace Garage
         {
             Type = TypeEnum.Bicycle;
         }
+
         public override string ToString()
         {
-            return $"Type: {Type}, Color: {Color}, Licence Number: {LicenceNumber}, Number of wheels: {NumberWheel}, Fuel: {Fuel}, Is Mountainbike: {IsMountainBike}, Suitable for: {SuitableFor}";
+            return base.ToString() + $"\n\tIs Mountainbike: {IsMountainBike}" +
+                $"\n\tSuitable for: {SuitableFor}";
+            
         }
     }
 }
