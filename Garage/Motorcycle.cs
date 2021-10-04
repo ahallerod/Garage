@@ -7,14 +7,18 @@ namespace Garage
 {
     public class Motorcycle : Vehicle
     {
-        public const string Type = "Motorcycle"; 
         public int NumberMirror { get; set; }
 
         public int YearModel { get; set; }
+        public Motorcycle()
+        {
+            Type = TypeEnum.Motorcycle;
+        }
 
         public override string ToString()
         {
-            return base.ToString() + $" Number Mirrors: {NumberMirror}, Model Year: {YearModel}";
+            return base.ToString() + $" Number Mirrors: {NumberMirror}" +
+                $"\n\tModel Year: {YearModel}";
         }
     }
 }

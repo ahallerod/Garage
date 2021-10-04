@@ -96,7 +96,7 @@ namespace Garage
                     Console.WriteLine("How many Wheels does your Car have?");
                     addCar.NumberWheel = int.Parse(Console.ReadLine());
                     Console.WriteLine("What's the brand of your Car?");
-                    addCar.Make = Console.ReadLine();
+                    addCar.Brand = Console.ReadLine();
                     Console.WriteLine("Whats the Model?");
                     addCar.Model = Console.ReadLine();
                     return addCar;

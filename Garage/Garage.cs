@@ -7,11 +7,7 @@ namespace Garage
 {
     public class Garage
     {
-        public IEnumerable<Vehicle> ParkedVehicles
-        {
-            get;
-            set;
-        }
+        public IEnumerable<Vehicle> ParkedVehicles { get; set; }
         public int MaxCapacity { get; set; }
 
         public Garage()

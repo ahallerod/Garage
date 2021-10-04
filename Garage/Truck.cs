@@ -9,5 +9,16 @@ namespace Garage
     {
         public decimal TruckLenght { get; set; }
         public string LoadedWith { get; set; }
+
+        public Truck()
+        {
+            Type = TypeEnum.Truck;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + $" Length of Truck: {TruckLenght}" +
+                $"\n\tLoaded with: {LoadedWith}";
+        }
     }
 }
