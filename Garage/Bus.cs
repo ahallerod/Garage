@@ -7,7 +7,7 @@ namespace Garage
 {
     public class Bus : Vehicle
     {
-        public const string Type = "Bus";
+        public new const string Type = "Bus";
         public int PassengerCapacity { get; set; }
         public string SchoolBus { get; set; }
 

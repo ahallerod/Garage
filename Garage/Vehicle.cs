@@ -7,11 +7,17 @@ namespace Garage
 {
     public class Vehicle
     {
-        public const string Type = "Vehicle";
+        public enum TypeEnum { Vehicle, Bicycle, Motorcycle, Truck, Bus }
+        public TypeEnum Type { get; set; }
         public string Color { get; set; }
         public string LicenceNumber { get; set; }
         public int NumberWheel { get; set; }
         public string Fuel { get; set; }
+
+        public Vehicle()
+        {
+            Type = TypeEnum.Vehicle;
+        }
 
         public override string ToString()
         {

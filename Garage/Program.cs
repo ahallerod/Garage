@@ -29,13 +29,16 @@ namespace Garage
                         break;
                     case 3:
                         //Remove Vehicles
-
-
+                        
+                        break;
+                    case 4:
+                        //Search Vehicles
+                        
                         break;
 
-
-
-
+                    case 5:
+                        //Exit Program
+                        return;
                 }
 
             }
