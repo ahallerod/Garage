@@ -18,6 +18,8 @@ namespace Garage
         {
             Type = TypeEnum.Vehicle;
         }
+        public enum Fueloption {Gas, Electric};
+       
 
         public override string ToString()
         {

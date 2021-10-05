@@ -69,81 +69,94 @@ namespace Garage
                     Console.WriteLine("Who is your vehicle suitable for?");
                     addBicycle.SuitableFor = Console.ReadLine();
                     return addBicycle;
-                /*
-                     case "2":
-                         Motorcycle addMotorcycle = new Motorcycle();
-                         Console.WriteLine("What is the Color of the Motorcycle?");
-                         addMotorcycle.Color = Console.ReadLine();
-                         Console.WriteLine("What type of Fuel do you use?");
-                         addMotorcycle.Fuel = Console.ReadLine();
-                         Console.WriteLine("What is your Licence Number?");
-                         addMotorcycle.LicenceNumber = Console.ReadLine();
-                         Console.WriteLine("How many Wheels does your Motorcycle have?");
-                         addMotorcycle.NumberWheel = int.Parse(Console.ReadLine());
-                         Console.WriteLine("How many mirrors does your Motorcycle have??");
-                         addMotorcycle.NumberMirror = int.Parse(Console.ReadLine());
-                         Console.WriteLine("What Model Year is your Motorcycle from?");
-                         addMotorcycle.YearModel = int.Parse(Console.ReadLine());
-                         return addMotorcycle;
 
-                     case "3":
-                         Car addCar = new Car();
-                         Console.WriteLine("What is the Color of the Car?");
-                         addCar.Color = Console.ReadLine();
-                         Console.WriteLine("What type of Fuel do you use?");
-                         addCar.Fuel = Console.ReadLine();
-                         Console.WriteLine("What is your Licence Number?");
-                         addCar.LicenceNumber = Console.ReadLine();
-                         Console.WriteLine("How many Wheels does your Car have?");
-                         addCar.NumberWheel = int.Parse(Console.ReadLine());
-                         Console.WriteLine("What's the brand of your Car?");
-                         addCar.Brand = Console.ReadLine();
-                         Console.WriteLine("Whats the Model?");
-                         addCar.Model = Console.ReadLine();
-                         return addCar;
 
-                     case "4":
-                         Bus addBus = new Bus();
-                         Console.WriteLine("What is the Color of the Bus?");
-                         addBus.Color = Console.ReadLine();
-                         Console.WriteLine("What type of Fuel do you use?");
-                         addBus.Fuel = Console.ReadLine();
-                         Console.WriteLine("What is your Licence Number?");
-                         addBus.LicenceNumber = Console.ReadLine();
-                         Console.WriteLine("How many Wheels does your Bus have?");
-                         addBus.NumberWheel = int.Parse(Console.ReadLine());
-                         Console.WriteLine("How many passengers can fit in the Bus?");
-                         addBus.PassengerCapacity = int.Parse(Console.ReadLine());
-                         Console.WriteLine("Is it a school bus?");
-                         addBus.SchoolBus = Console.ReadLine();
-                         return addBus;
+                case "2":
+                    Motorcycle addMotorcycle = new Motorcycle();
+                    Console.WriteLine("What is the Color of the Motorcycle?");
+                    addMotorcycle.Color = Console.ReadLine();
+                    Console.WriteLine("What type of Fuel do you use?");
+                    addMotorcycle.Fuel = Console.ReadLine();
+                    Console.WriteLine("What is your Licence Number?");
+                    addMotorcycle.LicenceNumber = Console.ReadLine();
+                    Console.WriteLine("How many Wheels does your Motorcycle have?");
+                    addMotorcycle.NumberWheel = int.Parse(Console.ReadLine());
+                    Console.WriteLine("How many mirrors does your Motorcycle have??");
+                    addMotorcycle.NumberMirror = int.Parse(Console.ReadLine());
+                    Console.WriteLine("What Model Year is your Motorcycle from?");
+                    addMotorcycle.YearModel = int.Parse(Console.ReadLine());
+                    return addMotorcycle;
 
-                     case "5":
-                         Truck addTruck = new Truck();
-                         Console.WriteLine("What is the Color of the Truck?");
-                         addTruck.Color = Console.ReadLine();
-                         Console.WriteLine("What type of Fuel do you use?");
-                         addTruck.Fuel = Console.ReadLine();
-                         Console.WriteLine("What is your Licence Number?");
-                         addTruck.LicenceNumber = Console.ReadLine();
-                         Console.WriteLine("How many Wheels does your Truck have?");
-                         addTruck.NumberWheel = int.Parse(Console.ReadLine());
-                         Console.WriteLine("What is the length of your Truck?");
-                         addTruck.TruckLenght = int.Parse(Console.ReadLine());
-                         Console.WriteLine("What is it loaded with?");
-                         addTruck.LoadedWith = Console.ReadLine();
-                         return addTruck;
-                */
+                case "3":
+                    Car addCar = new Car();
+                    Console.WriteLine("What is the Color of the Car?");
+                    addCar.Color = Console.ReadLine();
+                    Console.WriteLine("What type of Fuel do you use?");
+                    addCar.Fuel = Console.ReadLine();
+                    Console.WriteLine("What is your Licence Number?");
+                    addCar.LicenceNumber = Console.ReadLine();
+                    Console.WriteLine("How many Wheels does your Car have?");
+                    addCar.NumberWheel = int.Parse(Console.ReadLine());
+                    Console.WriteLine("What's the brand of your Car?");
+                    addCar.Brand = Console.ReadLine();
+                    Console.WriteLine("Whats the Model?");
+                    addCar.Model = Console.ReadLine();
+                    return addCar;
+
+                case "4":
+                    Bus addBus = new Bus();
+                    Console.WriteLine("What is the Color of the Bus?");
+                    addBus.Color = Console.ReadLine();
+                    Console.WriteLine("What type of Fuel do you use?");
+                    addBus.Fuel = Console.ReadLine();
+                    Console.WriteLine("What is your Licence Number?");
+                    addBus.LicenceNumber = Console.ReadLine();
+                    Console.WriteLine("How many Wheels does your Bus have?");
+                    addBus.NumberWheel = int.Parse(Console.ReadLine());
+                    Console.WriteLine("How many passengers can fit in the Bus?");
+                    addBus.PassengerCapacity = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Is it a school bus?");
+                    addBus.SchoolBus = Console.ReadLine();
+                    return addBus;
+
+                case "5":
+                    Truck addTruck = new Truck();
+                    Console.WriteLine("What is the Color of the Truck?");
+                    addTruck.Color = Console.ReadLine();
+                    Console.WriteLine("What type of Fuel do you use?");
+                    addTruck.Fuel = Console.ReadLine();
+                    Console.WriteLine("What is your Licence Number?");
+                    addTruck.LicenceNumber = Console.ReadLine();
+                    Console.WriteLine("How many Wheels does your Truck have?");
+                    addTruck.NumberWheel = int.Parse(Console.ReadLine());
+                    Console.WriteLine("What is the length of your Truck?");
+                    addTruck.TruckLenght = int.Parse(Console.ReadLine());
+                    Console.WriteLine("What is it loaded with?");
+                    addTruck.LoadedWith = Console.ReadLine();
+                    return addTruck;
+
                 default:
                     return null;
             }
 
         }
 
-        public static void RemoveVehicle()
+
+        public static Vehicle RemoveVehicle(List<Vehicle> vehicles)
         {
-            Console.WriteLine("Remove vehicles from the garage.");
+            Console.WriteLine("Remove a vehicle from the garage." +
+                "Choose a number to remove:");
+            int index = 0;
+            foreach (Vehicle vehicle in vehicles)
+            {
+                index++;
+                Console.WriteLine($"{index}. {vehicle}");
+            }
             //Funktion som raderar fordon från listan.
+            int.TryParse(Console.ReadLine(), out int userInput);
+            return vehicles[userInput-1];
+            //Console.WriteLine($"{userInput}. {vehicles} has been moved.");
+
         }
 
         public static void ListVehicles(List<Vehicle> vehicles)
@@ -165,6 +178,7 @@ namespace Garage
 
 
         public static int AskGarageSize()
+
         {
             Console.WriteLine("\nWelcome to Garage Simulator 2021!\n");
             Console.WriteLine("How many parking spaces does this garage have?");

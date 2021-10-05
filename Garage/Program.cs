@@ -29,7 +29,9 @@ namespace Garage
                         break;
                     case 3:
                         //Remove Vehicles
-                        
+                        garage.RemoveVehicle(UI.RemoveVehicle(garage.ListVehicles()));
+
+
                         break;
                     case 4:
                         //Search Vehicles
