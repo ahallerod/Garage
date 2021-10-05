@@ -52,7 +52,7 @@ namespace Garage
             Vehicle returnVehicle = new();
             switch (userInput)
             {
-                
+
                 case "1":
                     Bicycle addBicycle = new Bicycle();
                     Console.WriteLine("What is the Color of the Bicycle?");
@@ -68,7 +68,7 @@ namespace Garage
                     Console.WriteLine("Who is your vehicle suitable for?");
                     addBicycle.SuitableFor = Console.ReadLine();
                     return addBicycle;
-           
+
                 case "2":
                     Motorcycle addMotorcycle = new Motorcycle();
                     Console.WriteLine("What is the Color of the Motorcycle?");
@@ -135,46 +135,56 @@ namespace Garage
 
                 default:
                     return null;
+            }
+
         }
 
-    }
-
-    public static void RemoveVehicle()
-    {
-        Console.WriteLine("Remove vehicles from the garage.");
-        //Funktion som raderar fordon från listan.
-    }
-
-    public static void ListVehicles(List<Vehicle> vehicles)
-    {
-        Console.WriteLine("All vehicles parked in the garage.");
-        int i = 0;
-        foreach (Vehicle vehicle in vehicles)
+        public static Vehicle RemoveVehicle(List<Vehicle> vehicles)
         {
-            i++;
-            Console.WriteLine($"{i}. {vehicle}");
+            Console.WriteLine("Remove a vehicle from the garage." +
+                "Choose a number to remove:");
+            int index = 0;
+            foreach (Vehicle vehicle in vehicles)
+            {
+                index++;
+                Console.WriteLine($"{index}. {vehicle}");
+            }
+            //Funktion som raderar fordon från listan.
+            int.TryParse(Console.ReadLine(), out int userInput);
+            return vehicles[userInput-1];
+            //Console.WriteLine($"{userInput}. {vehicles} has been moved.");
         }
+
+        public static void ListVehicles(List<Vehicle> vehicles)
+        {
+            Console.WriteLine("All vehicles parked in the garage.");
+            int i = 0;
+            foreach (Vehicle vehicle in vehicles)
+            {
+                i++;
+                Console.WriteLine($"{i}. {vehicle}");
+            }
             Console.ReadLine();
-    }
+        }
 
-    public static void SearchVehicles()
-    {
-
-    }
-
-
-    public static int AskGarageSize()
-    {
-        Console.WriteLine("\nWelcome to Garage Simulator 2021!\n");
-        Console.WriteLine("How many parking spaces does this garage have?");
-        string input;
-        int option;
-        while (true)
+        public static void SearchVehicles()
         {
-            input = Console.ReadLine();
-            if (int.TryParse(input, out option) && option >= 0) return option;
-            Console.WriteLine("Please try again, only positive numbers accepted.");
+
+        }
+
+
+        public static int AskGarageSize()
+        {
+            Console.WriteLine("\nWelcome to Garage Simulator 2021!\n");
+            Console.WriteLine("How many parking spaces does this garage have?");
+            string input;
+            int option;
+            while (true)
+            {
+                input = Console.ReadLine();
+                if (int.TryParse(input, out option) && option >= 0) return option;
+                Console.WriteLine("Please try again, only positive numbers accepted.");
+            }
         }
     }
-}
 }
