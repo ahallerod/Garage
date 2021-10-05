@@ -40,23 +40,7 @@ namespace Garage
                         //Exit Program
                         return;
                 }
-
             }
-
-            /*
-            Vehicle v1 = new();
-            v1.LicenceNumber = "123";
-            Vehicle v2 = new();
-            v2.LicenceNumber = "456";
-            g.AddVehicle(v1);
-            g.AddVehicle(v2);
-            g.ListVehicles();
-
-            g.RemoveVehicle(v1);
-            g.ListVehicles();
-            */
-
         }
-
     }
 }

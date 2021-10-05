@@ -35,9 +35,9 @@ namespace Garage
             return ParkedVehicles.Where(v => v.Type == type).ToList();
         }
 
-        public void SearchVehicle()
+        public List<Vehicle> SearchVehicleColor(string color)
         {
-            throw new System.NotImplementedException();
+            return ParkedVehicles.Where(v => v.Color.ToLower() == color.ToLower()).ToList();
         }
     }
 }
