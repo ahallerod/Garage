@@ -11,7 +11,7 @@ namespace Garage
 
             Garage garage = new();
 
-            garage.MaxCapacity = UI.AskGarageSize();
+            garage.Capacity = UI.AskGarageSize();
 
             while (true)
             {

@@ -48,12 +48,13 @@ namespace Garage
                 "\n[3] Car." +
                 "\n[4] Bus." +
                 "\n[5] Truck");
-            string userInput = Console.ReadLine();
+            //int userInput;
+                int.TryParse(Console.ReadLine(), out int userInput);
             Vehicle returnVehicle = new();
             switch (userInput)
             {
                 
-                case "1":
+                case (int)Vehicle.TypeEnum.Bicycle:
                     Bicycle addBicycle = new Bicycle();
                     Console.WriteLine("What is the Color of the Bicycle?");
                     addBicycle.Color = Console.ReadLine();
@@ -68,7 +69,7 @@ namespace Garage
                     Console.WriteLine("Who is your vehicle suitable for?");
                     addBicycle.SuitableFor = Console.ReadLine();
                     return addBicycle;
-           
+           /*
                 case "2":
                     Motorcycle addMotorcycle = new Motorcycle();
                     Console.WriteLine("What is the Color of the Motorcycle?");
@@ -132,7 +133,7 @@ namespace Garage
                     Console.WriteLine("What is it loaded with?");
                     addTruck.LoadedWith = Console.ReadLine();
                     return addTruck;
-
+           */
                 default:
                     return null;
         }
