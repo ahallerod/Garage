@@ -8,12 +8,12 @@ namespace Garage
     public class Garage
     {
         public IEnumerable<Vehicle> ParkedVehicles { get; set; }
-        public int MaxCapacity { get; set; }
+        public int Capacity { get; set; }
 
         public Garage()
         {
             ParkedVehicles = new List<Vehicle>();
-            MaxCapacity = 0;
+            Capacity = 0;
         }
         
         public void AddVehicle(Vehicle vehicle)
@@ -31,16 +31,14 @@ namespace Garage
             return ParkedVehicles.ToList();
         }
 
-        public void ListTypeOfVehicles()
+        public List<Vehicle> ListTypeOfVehicles(Vehicle.TypeEnum type)
         {
-            //return ParkedVehicles.Where(v => v.)
+            return ParkedVehicles.Where(v => v.Type == type).ToList();
         }
 
-
-
-        public void SearchVehicle()
+        public List<Vehicle> SearchVehicleColor(string color)
         {
-            throw new System.NotImplementedException();
+            return ParkedVehicles.Where(v => v.Color.ToLower() == color.ToLower()).ToList();
         }
     }
 }

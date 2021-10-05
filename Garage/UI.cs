@@ -48,12 +48,13 @@ namespace Garage
                 "\n[3] Car." +
                 "\n[4] Bus." +
                 "\n[5] Truck");
-            string userInput = Console.ReadLine();
+            //int userInput;
+            int.TryParse(Console.ReadLine(), out int userInput);
             Vehicle returnVehicle = new();
             switch (userInput)
             {
 
-                case "1":
+                case (int)Vehicle.TypeEnum.Bicycle:
                     Bicycle addBicycle = new Bicycle();
                     Console.WriteLine("What is the Color of the Bicycle?");
                     addBicycle.Color = Console.ReadLine();
@@ -68,6 +69,7 @@ namespace Garage
                     Console.WriteLine("Who is your vehicle suitable for?");
                     addBicycle.SuitableFor = Console.ReadLine();
                     return addBicycle;
+
 
                 case "2":
                     Motorcycle addMotorcycle = new Motorcycle();
@@ -139,6 +141,7 @@ namespace Garage
 
         }
 
+
         public static Vehicle RemoveVehicle(List<Vehicle> vehicles)
         {
             Console.WriteLine("Remove a vehicle from the garage." +
@@ -153,6 +156,7 @@ namespace Garage
             int.TryParse(Console.ReadLine(), out int userInput);
             return vehicles[userInput-1];
             //Console.WriteLine($"{userInput}. {vehicles} has been moved.");
+
         }
 
         public static void ListVehicles(List<Vehicle> vehicles)
@@ -174,6 +178,7 @@ namespace Garage
 
 
         public static int AskGarageSize()
+
         {
             Console.WriteLine("\nWelcome to Garage Simulator 2021!\n");
             Console.WriteLine("How many parking spaces does this garage have?");
@@ -185,6 +190,48 @@ namespace Garage
                 if (int.TryParse(input, out option) && option >= 0) return option;
                 Console.WriteLine("Please try again, only positive numbers accepted.");
             }
+        }
+
+        public static void SearchMenu()
+        {
+            int option;
+            while(true)
+            {
+                Console.Clear();
+                Console.WriteLine(
+                    "-- Vehicle Search Menu --\n" +
+                    "Please select search option:\n" +
+                    "[1] Vehicle Type\n" +
+                    "[2] Color\n" +
+                    "[3] Licence Number\n" +
+                    "[4] Fuel Type\n" +
+                    "[5] Cancel Seach and return to Main Menu"
+                    );
+                
+                string input = Console.ReadLine();
+                if (int.TryParse(input, out option) && option > 0 && option <= 5) break; //Break if valid selection
+                Console.WriteLine("Please try again, only positive numbers accepted.");
+            }
+
+            switch(option)
+            {
+                case 1:
+                    break;
+                case 2:
+ 
+
+
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    return;
+                default:
+                    break;
+            }
+            Console.ReadLine();
         }
     }
 }

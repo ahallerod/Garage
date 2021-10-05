@@ -1,58 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Garage.Garage">
-    <Position X="1.25" Y="2.75" Width="1.5" />
+    <Position X="1" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAAAAAAAAAAAAIAAAAEAAAAAAgIAAIAAAAA=</HashCode>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAIACAAECAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Garage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Garage.Vehicle">
     <Position X="7.75" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Garage.Vehicle.TypeEnum" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Vehicle.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAgAAgAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAABEAAAAAAAAAAAAwAAgAAAAAA=</HashCode>
       <FileName>Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Garage.UI">
-    <Position X="1.25" Y="0.5" Width="1.5" />
+    <Position X="1" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAAAAIAAAAAAAgAAAAAA=</HashCode>
+      <HashCode>AAAEAAAAAAAAAAAAAIAAAIAAAAQAIAAAAgAQAAAAAAA=</HashCode>
       <FileName>UI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Garage.Bus">
-    <Position X="9.5" Y="2.75" Width="1.5" />
+    <Position X="9.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAACAAAAAAAAAAAAABAA=</HashCode>
       <FileName>Bus.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Garage.Car">
-    <Position X="7.75" Y="2.75" Width="1.5" />
+    <Position X="7.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAgAAAABAAA=</HashCode>
       <FileName>Car.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Garage.Bicycle">
-    <Position X="4.25" Y="2.75" Width="1.5" />
+    <Position X="4.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAIAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>Bicycle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Garage.Motorcycle">
-    <Position X="6" Y="2.75" Width="1.5" />
+    <Position X="6" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAAAAEAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>Motorcycle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Garage.Truck">
-    <Position X="11.25" Y="2.75" Width="1.5" />
+    <Position X="11.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAACAAAAAAAAQA=</HashCode>
       <FileName>Truck.cs</FileName>
     </TypeIdentifier>
   </Class>
