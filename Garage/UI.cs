@@ -129,10 +129,19 @@ namespace Garage
             }
         }
 
-        public static void RemoveVehicle()
+        public static Vehicle RemoveVehicle(List<Vehicle> vehicles)
         {
-            Console.WriteLine("Remove vehicles from the garage.");
-            //Funktion som raderar fordon från listan.
+            Console.WriteLine("Remove a vehicle from the garage." +
+                "\nChoose a number to remove:");
+            int index = 0;
+            foreach (Vehicle vehicle in vehicles)
+            {
+                index++;
+                Console.WriteLine($"{index}. {vehicle}");
+            }
+            int.TryParse(Console.ReadLine(), out int userInput);
+            return vehicles[userInput - 1];
+            //Console.WriteLine($"{userInput}. {vehicles} has been moved.");
         }
 
         public static void ListVehicles(List<Vehicle> vehicles)
@@ -167,13 +176,13 @@ namespace Garage
             }
         }
 
-        public static (criteria, condition) SearchMenu(List<Vehicle> vehicles)
+    /*    public static (criteria, condition) SearchMenu(List<Vehicle> vehicles)
         {
             int option;
             while(true)
             {
                 Console.Clear();
-                Console.WriteLine(tuple
+                Console.WriteLine("" +
                     "-- Vehicle Search Menu --\n" +
                     "Please select search option:\n" +
                     "[1] Vehicle Type\n" +
@@ -194,7 +203,7 @@ namespace Garage
                     break;
                 case 2:
                     //Search for Color
-                    Console.WriteLine("Please type color to search for:")
+                    Console.WriteLine("Please type color to search for:");
                     return ("Color", Console.ReadLine());
 
                     break;
@@ -208,6 +217,6 @@ namespace Garage
                     break;
             }
             Console.ReadLine();
+     */
         }
     }
-}

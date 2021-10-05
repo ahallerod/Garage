@@ -32,7 +32,7 @@ namespace Garage
                         break;
                     case 4:
                         //Search Vehicles
-                        UI.SearchMenu(garage.ListVehicles());
+                        //UI.SearchMenu(garage.ListVehicles());
                         break;
 
                     case 5:
