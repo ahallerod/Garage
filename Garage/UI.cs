@@ -158,6 +158,7 @@ namespace Garage
 
         public static void SearchVehicles()
         {
+            Console.WriteLine("This is a test comment to test Github Commit");
 
         }
 
