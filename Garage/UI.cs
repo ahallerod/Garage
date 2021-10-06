@@ -21,7 +21,7 @@ namespace Garage
                 int option;
 
                 String input = Console.ReadLine();
-                if ((int.TryParse(input, out option)) && option > 0 && option <= 4)
+                if ((int.TryParse(input, out option)) && option > 0 && option <= 5)
                     return option;
 
                 Console.WriteLine("\nNot a valid option. Please try again.");
@@ -148,7 +148,7 @@ namespace Garage
 
         public static void ListVehicles(List<Vehicle> vehicles)
         {
-            Console.WriteLine("All vehicles parked in the garage.");
+            
             int i = 0;
             foreach (Vehicle vehicle in vehicles)
             {
@@ -157,12 +157,6 @@ namespace Garage
             }
             Console.ReadLine();
         }
-
-        public static void SearchVehicles()
-        {
-
-        }
-
 
         public static int AskGarageSize()
         {
@@ -186,38 +180,48 @@ namespace Garage
                 Console.Clear();
                 Console.WriteLine(
                     "-- Vehicle Search Menu --\n" +
-                    "Please select search option:\n" +
+                    "Possible search options:\n" +
                     "[1] Vehicle Type\n" +
                     "[2] Color\n" +
                     "[3] Licence Number\n" +
                     "[4] Fuel Type\n"
                     );
-                
+
+                Console.WriteLine("Please make your selection: ");
                 string input = Console.ReadLine();
-                if (int.TryParse(input, out option) && option > 0 && option <= 5) break; //Break if valid selection
+                if (int.TryParse(input, out option) && option > 0 && option <= 4) break; //Break if valid selection
                 Console.WriteLine("Please try again, only positive numbers accepted.");
             }
             
             switch(option)
             {
                 case 1:
-                    break;
+                    Console.WriteLine("Please type which vehicle type to search for:");
+                    return ("Type", Console.ReadLine());
                 case 2:
                     //Search for Color
                     Console.WriteLine("Please type color to search for:");
                     return ("Color", Console.ReadLine());
                 case 3:
-                    break;
+                    //Search for Licence Number
+                    Console.WriteLine("Please type Licence Number to search for:");
+                    return ("LicenceNumber", Console.ReadLine());
                 case 4:
                     break;
                 default:
                     break;
             }
+            //Should probably be removed:
             Console.ReadLine();
 
             //Dummy code, remove later
             Console.WriteLine("Please type color to search for:");
             return ("Color", Console.ReadLine());
+        }
+
+        public static void PrintHeader(string header)
+        {
+            Console.WriteLine($" -- {header} --");
         }
     }
 }

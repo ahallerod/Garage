@@ -18,8 +18,9 @@ namespace Garage
 
                 switch (UI.PrintMainMenu())
                 {
-                    case 1: 
+                    case 1:
                         //List Vehicles
+                        UI.PrintHeader("All Vehicles Parked in the Garage:");
                         UI.ListVehicles(garage.ListVehicles());
                         break;
                     case 2:
@@ -32,7 +33,8 @@ namespace Garage
                         break;
                     case 4:
                         //Search Vehicles
-                        UI.SearchMenu(garage.ListVehicles());
+                        (string searchType, string searchCondition) = UI.SearchMenu(garage.ListVehicles());
+                        UI.ListVehicles(garage.SearchVehicle(searchType, searchCondition));
                         break;
 
                     case 5:
