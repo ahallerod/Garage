@@ -67,7 +67,11 @@ namespace Garage
                     Console.WriteLine("What is the Color of the Motorcycle?");
                     addMotorcycle.Color = Console.ReadLine();
                     Console.WriteLine("What type of Fuel do you use?");
+<<<<<<< HEAD
         //            addMotorcycle.Fuel = Console.ReadLine();
+=======
+                    addMotorcycle.Fuel = Console.ReadLine();
+>>>>>>> 552b18ce6a1ab683ffbe942813fb2521a4406d17
                     Console.WriteLine("What is your Licence Number?");
                     addMotorcycle.LicenceNumber = Console.ReadLine();
                     Console.WriteLine("How many Wheels does your Motorcycle have?");
@@ -83,7 +87,11 @@ namespace Garage
                     Console.WriteLine("What is the Color of the Car?");
                     addCar.Color = Console.ReadLine();
                     Console.WriteLine("What type of Fuel do you use?");
+<<<<<<< HEAD
                     //           addCar.Fuel = Console.ReadLine();
+=======
+                    addCar.Fuel = Console.ReadLine();
+>>>>>>> 552b18ce6a1ab683ffbe942813fb2521a4406d17
                     Console.WriteLine("What is your Licence Number?");
                     addCar.LicenceNumber = Console.ReadLine();
                     Console.WriteLine("How many Wheels does your Car have?");
@@ -99,7 +107,11 @@ namespace Garage
                     Console.WriteLine("What is the Color of the Bus?");
                     addBus.Color = Console.ReadLine();
                     Console.WriteLine("What type of Fuel do you use?");
+<<<<<<< HEAD
                     //           addBus.Fuel = Console.ReadLine();
+=======
+                    addBus.Fuel = Console.ReadLine();
+>>>>>>> 552b18ce6a1ab683ffbe942813fb2521a4406d17
                     Console.WriteLine("What is your Licence Number?");
                     addBus.LicenceNumber = Console.ReadLine();
                     Console.WriteLine("How many Wheels does your Bus have?");
@@ -115,7 +127,11 @@ namespace Garage
                     Console.WriteLine("What is the Color of the Truck?");
                     addTruck.Color = Console.ReadLine();
                     Console.WriteLine("What type of Fuel do you use?");
+<<<<<<< HEAD
                     //            addTruck.Fuel = Console.ReadLine();
+=======
+                    addTruck.Fuel = Console.ReadLine();
+>>>>>>> 552b18ce6a1ab683ffbe942813fb2521a4406d17
                     Console.WriteLine("What is your Licence Number?");
                     addTruck.LicenceNumber = Console.ReadLine();
                     Console.WriteLine("How many Wheels does your Truck have?");
@@ -160,6 +176,7 @@ namespace Garage
             Console.ReadLine();
         }
 
+<<<<<<< HEAD
         public static void SearchVehicles()
         {
             Console.WriteLine("This is a test comment to test Github Commit");
@@ -167,10 +184,16 @@ namespace Garage
         }
 
 
+=======
+        public static void Intro()
+        {
+            Console.WriteLine("\n   Welcome to Garage Simulator 2021!\n");
+        }
+>>>>>>> 552b18ce6a1ab683ffbe942813fb2521a4406d17
         public static int AskGarageSize()
         {
-            Console.WriteLine("\nWelcome to Garage Simulator 2021!\n");
-            Console.WriteLine("How many parking spaces does this garage have?");
+
+            Console.WriteLine("How many parking spaces will this garage have?");
             string input;
             int option;
             while (true)
@@ -235,6 +258,25 @@ namespace Garage
         public static void PrintHeader(string header)
         {
             Console.WriteLine($" -- {header} --");
+        }
+
+        public static bool CreateNew()
+        {
+            int option;
+            while(true){
+                Console.WriteLine(
+                    "Do you want to\n" +
+                    "[1] Create a brand new Garage (This will overwrite any previously saved Garage)\n" +
+                    "[2] Load the last Garage\n");
+                
+                string input = Console.ReadLine();
+                if (int.TryParse(input, out option) && option > 0 && option <= 2) break; //Break if valid selection
+                Console.WriteLine("Please try again, not a valid selection.");
+            }
+            if (option == 1) return true;
+            return false;
+            
+
         }
     }
 }
