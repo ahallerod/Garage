@@ -175,6 +175,7 @@ namespace Garage
                     return addBicycle;
 
                 case (int)Vehicle.TypeEnum.Motorcycle:
+
                     Motorcycle addMotorcycle = new()
                     {
                         Color = UI.AskColor(),
@@ -190,6 +191,7 @@ namespace Garage
                     return addMotorcycle;
 
                 case (int)Vehicle.TypeEnum.Car:
+
                     Car addCar = new()
                     {
                         Color = UI.AskColor(),
@@ -205,6 +207,7 @@ namespace Garage
                     return addCar;
 
                 case (int)Vehicle.TypeEnum.Bus:
+
                     Bus addBus = new()
                     {
                         Color = UI.AskColor(),
@@ -220,6 +223,7 @@ namespace Garage
                     return addBus;
 
                 case (int)Vehicle.TypeEnum.Truck:
+
                     Truck addTruck = new()
                     {
                         Color = UI.AskColor(),
@@ -272,6 +276,7 @@ namespace Garage
         {
 
         }
+
         public static void Intro()
         {
             UI.Header();
@@ -291,9 +296,8 @@ namespace Garage
                 Console.WriteLine("Please try again, only positive numbers accepted.");
             }
         }
-        /*
+        
         public static (string, string) SearchMenu(List<Vehicle> vehicles)
-        public static (criteria, condition) SearchMenu(List<Vehicle> vehicles)
         {
             int option;
             while(true)
@@ -307,7 +311,7 @@ namespace Garage
                     "[3] Licence Number\n" +
                     "[4] Fuel Type\n"
                     );
-                /*
+                
                 Console.WriteLine("Please make your selection: ");
                 string input = Console.ReadLine();
                 if (int.TryParse(input, out option) && option > 0 && option <= 4) break; //Break if valid selection
@@ -328,10 +332,9 @@ namespace Garage
                     Console.WriteLine("Please type Licence Number to search for:");
                     return ("LicenceNumber", Console.ReadLine());
                 case 4:
-        //Search for Licence Number
+                   //Search for Licence Number
                     Console.WriteLine("Please type Licence Number to search for:");
                     return ("Fuel", Console.ReadLine());
-                    break;
                 default:
                     break;
             }
@@ -342,7 +345,7 @@ namespace Garage
             Console.WriteLine("Please type color to search for:");
             return ("Color", Console.ReadLine());
         }
-*/
+
         public static void PrintHeader(string header)
         {
             Console.WriteLine($" -- {header} --");
