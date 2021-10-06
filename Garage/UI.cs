@@ -59,8 +59,8 @@ namespace Garage
                     Console.WriteLine("Who is your vehicle suitable for?");
                     addBicycle.SuitableFor = Console.ReadLine();
                     return addBicycle;
-                /*
-                     case "2":
+
+                     case (int)Vehicle.TypeEnum.Motorcycle:
                          Motorcycle addMotorcycle = new Motorcycle();
                          Console.WriteLine("What is the Color of the Motorcycle?");
                          addMotorcycle.Color = Console.ReadLine();
@@ -76,7 +76,7 @@ namespace Garage
                          addMotorcycle.YearModel = int.Parse(Console.ReadLine());
                          return addMotorcycle;
 
-                     case "3":
+                     case (int)Vehicle.TypeEnum.Car:
                          Car addCar = new Car();
                          Console.WriteLine("What is the Color of the Car?");
                          addCar.Color = Console.ReadLine();
@@ -92,7 +92,7 @@ namespace Garage
                          addCar.Model = Console.ReadLine();
                          return addCar;
 
-                     case "4":
+                     case (int)Vehicle.TypeEnum.Bus:
                          Bus addBus = new Bus();
                          Console.WriteLine("What is the Color of the Bus?");
                          addBus.Color = Console.ReadLine();
@@ -108,7 +108,7 @@ namespace Garage
                          addBus.SchoolBus = Console.ReadLine();
                          return addBus;
 
-                     case "5":
+                     case (int)Vehicle.TypeEnum.Truck:
                          Truck addTruck = new Truck();
                          Console.WriteLine("What is the Color of the Truck?");
                          addTruck.Color = Console.ReadLine();
@@ -123,7 +123,6 @@ namespace Garage
                          Console.WriteLine("What is it loaded with?");
                          addTruck.LoadedWith = Console.ReadLine();
                          return addTruck;
-                */
                 default:
                     return null;
             }
