@@ -8,10 +8,13 @@ namespace Garage
 
         static void Main(string[] args)
         {
+            UI.Intro();
 
             Garage garage = new();
-
-            garage.Capacity = UI.AskGarageSize();
+            if (UI.CreateNew())
+                garage.Capacity = UI.AskGarageSize();
+            else
+                garage = FileHandler.LoadGarage();
 
             while (true)
             {
@@ -36,9 +39,9 @@ namespace Garage
                         (string searchType, string searchCondition) = UI.SearchMenu(garage.ListVehicles());
                         UI.ListVehicles(garage.SearchVehicle(searchType, searchCondition));
                         break;
-
                     case 5:
                         //Exit Program
+                        FileHandler.SaveGarage(garage);
                         return;
                 }
             }
