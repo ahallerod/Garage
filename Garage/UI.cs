@@ -129,10 +129,22 @@ namespace Garage
             }
         }
 
-        public static void RemoveVehicle()
+        public static Vehicle RemoveVehicle(List<Vehicle> vehicles)
         {
+            Console.WriteLine("Remove a vehicle from the garage." +
+                "Choose a number to remove:");
+            int index = 0;
+            foreach (Vehicle vehicle in vehicles)
+            {
+                index++;
+                Console.WriteLine($"{index}. {vehicle}");
+            }
             Console.WriteLine("Remove vehicles from the garage.");
             //Funktion som raderar fordon från listan.
+            int.TryParse(Console.ReadLine(), out int userInput);
+            return vehicles[userInput - 1];
+            //Console.WriteLine($"{userInput}. {vehicles} has been moved.");
+
         }
 
         public static void ListVehicles(List<Vehicle> vehicles)
@@ -167,20 +179,19 @@ namespace Garage
             }
         }
 
-        public static (criteria, condition) SearchMenu(List<Vehicle> vehicles)
+        public static (string, string) SearchMenu(List<Vehicle> vehicles)
         {
             int option;
             while(true)
             {
                 Console.Clear();
-                Console.WriteLine(tuple
+                Console.WriteLine(
                     "-- Vehicle Search Menu --\n" +
                     "Please select search option:\n" +
                     "[1] Vehicle Type\n" +
                     "[2] Color\n" +
                     "[3] Licence Number\n" +
-                    "[4] Fuel Type\n" +
-                    "[5] Cancel Seach and return to Main Menu"
+                    "[4] Fuel Type\n"
                     );
                 
                 string input = Console.ReadLine();
@@ -194,20 +205,20 @@ namespace Garage
                     break;
                 case 2:
                     //Search for Color
-                    Console.WriteLine("Please type color to search for:")
+                    Console.WriteLine("Please type color to search for:");
                     return ("Color", Console.ReadLine());
-
-                    break;
                 case 3:
                     break;
                 case 4:
                     break;
-                case 5:
-                    return;
                 default:
                     break;
             }
             Console.ReadLine();
+
+            //Dummy code, remove later
+            Console.WriteLine("Please type color to search for:");
+            return ("Color", Console.ReadLine());
         }
     }
 }
