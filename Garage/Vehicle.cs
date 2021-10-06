@@ -12,15 +12,26 @@ namespace Garage
         public string Color { get; set; }
         public string LicenceNumber { get; set; }
         public int NumberWheel { get; set; }
-        public string Fuel { get; set; }
+        //
+        public enum FuelEnum {Gas = 1, Electric };
+        public FuelEnum Fuel { get; set; }
 
         public Vehicle()
         {
             Type = TypeEnum.Vehicle;
         }
-        public enum Fueloption {Gas, Electric};
-       
 
+        public void askFuel()
+        {
+            int count = 0;
+            foreach (FuelEnum f in Enum.GetValues(typeof(FuelEnum)))
+            {
+                count++;
+                Console.Write("[" + count + "] ");
+                Console.WriteLine(f);
+                
+            }
+        }
         public override string ToString()
         {
             return $"-----" +
@@ -31,4 +42,8 @@ namespace Garage
                 $"\n\tFuel: {Fuel}";
         }
     }
+
+
+
+    
 }

@@ -31,6 +31,7 @@ namespace Garage
 
         public static Vehicle AddVehicle()
         {
+            Vehicle vFuel = new Vehicle();
 
             Console.WriteLine("Choose a Vehicle-Type to the park in the garage.");
             Console.WriteLine("[1] Bicycle." +
@@ -49,7 +50,8 @@ namespace Garage
                     Console.WriteLine("What is the Color of the Bicycle?");
                     addBicycle.Color = Console.ReadLine();
                     Console.WriteLine("What type of Fuel do you use?");
-                    addBicycle.Fuel = Console.ReadLine();
+                    vFuel.askFuel();
+                    //addBicycle.Fuel = Console.ReadLine();
                     Console.WriteLine("What is your Licence Number of your vehicle?");
                     addBicycle.LicenceNumber = Console.ReadLine();
                     Console.WriteLine("How many Wheels does your vehicle have?");
@@ -60,69 +62,69 @@ namespace Garage
                     addBicycle.SuitableFor = Console.ReadLine();
                     return addBicycle;
 
-                     case (int)Vehicle.TypeEnum.Motorcycle:
-                         Motorcycle addMotorcycle = new Motorcycle();
-                         Console.WriteLine("What is the Color of the Motorcycle?");
-                         addMotorcycle.Color = Console.ReadLine();
-                         Console.WriteLine("What type of Fuel do you use?");
-                         addMotorcycle.Fuel = Console.ReadLine();
-                         Console.WriteLine("What is your Licence Number?");
-                         addMotorcycle.LicenceNumber = Console.ReadLine();
-                         Console.WriteLine("How many Wheels does your Motorcycle have?");
-                         addMotorcycle.NumberWheel = int.Parse(Console.ReadLine());
-                         Console.WriteLine("How many mirrors does your Motorcycle have??");
-                         addMotorcycle.NumberMirror = int.Parse(Console.ReadLine());
-                         Console.WriteLine("What Model Year is your Motorcycle from?");
-                         addMotorcycle.YearModel = int.Parse(Console.ReadLine());
-                         return addMotorcycle;
+                case (int)Vehicle.TypeEnum.Motorcycle:
+                    Motorcycle addMotorcycle = new Motorcycle();
+                    Console.WriteLine("What is the Color of the Motorcycle?");
+                    addMotorcycle.Color = Console.ReadLine();
+                    Console.WriteLine("What type of Fuel do you use?");
+        //            addMotorcycle.Fuel = Console.ReadLine();
+                    Console.WriteLine("What is your Licence Number?");
+                    addMotorcycle.LicenceNumber = Console.ReadLine();
+                    Console.WriteLine("How many Wheels does your Motorcycle have?");
+                    addMotorcycle.NumberWheel = int.Parse(Console.ReadLine());
+                    Console.WriteLine("How many mirrors does your Motorcycle have??");
+                    addMotorcycle.NumberMirror = int.Parse(Console.ReadLine());
+                    Console.WriteLine("What Model Year is your Motorcycle from?");
+                    addMotorcycle.YearModel = int.Parse(Console.ReadLine());
+                    return addMotorcycle;
 
-                     case (int)Vehicle.TypeEnum.Car:
-                         Car addCar = new Car();
-                         Console.WriteLine("What is the Color of the Car?");
-                         addCar.Color = Console.ReadLine();
-                         Console.WriteLine("What type of Fuel do you use?");
-                         addCar.Fuel = Console.ReadLine();
-                         Console.WriteLine("What is your Licence Number?");
-                         addCar.LicenceNumber = Console.ReadLine();
-                         Console.WriteLine("How many Wheels does your Car have?");
-                         addCar.NumberWheel = int.Parse(Console.ReadLine());
-                         Console.WriteLine("What's the brand of your Car?");
-                         addCar.Brand = Console.ReadLine();
-                         Console.WriteLine("Whats the Model?");
-                         addCar.Model = Console.ReadLine();
-                         return addCar;
+                case (int)Vehicle.TypeEnum.Car:
+                    Car addCar = new Car();
+                    Console.WriteLine("What is the Color of the Car?");
+                    addCar.Color = Console.ReadLine();
+                    Console.WriteLine("What type of Fuel do you use?");
+                    //           addCar.Fuel = Console.ReadLine();
+                    Console.WriteLine("What is your Licence Number?");
+                    addCar.LicenceNumber = Console.ReadLine();
+                    Console.WriteLine("How many Wheels does your Car have?");
+                    addCar.NumberWheel = int.Parse(Console.ReadLine());
+                    Console.WriteLine("What's the brand of your Car?");
+                    addCar.Brand = Console.ReadLine();
+                    Console.WriteLine("Whats the Model?");
+                    addCar.Model = Console.ReadLine();
+                    return addCar;
 
-                     case (int)Vehicle.TypeEnum.Bus:
-                         Bus addBus = new Bus();
-                         Console.WriteLine("What is the Color of the Bus?");
-                         addBus.Color = Console.ReadLine();
-                         Console.WriteLine("What type of Fuel do you use?");
-                         addBus.Fuel = Console.ReadLine();
-                         Console.WriteLine("What is your Licence Number?");
-                         addBus.LicenceNumber = Console.ReadLine();
-                         Console.WriteLine("How many Wheels does your Bus have?");
-                         addBus.NumberWheel = int.Parse(Console.ReadLine());
-                         Console.WriteLine("How many passengers can fit in the Bus?");
-                         addBus.PassengerCapacity = int.Parse(Console.ReadLine());
-                         Console.WriteLine("Is it a school bus?");
-                         addBus.SchoolBus = Console.ReadLine();
-                         return addBus;
+                case (int)Vehicle.TypeEnum.Bus:
+                    Bus addBus = new Bus();
+                    Console.WriteLine("What is the Color of the Bus?");
+                    addBus.Color = Console.ReadLine();
+                    Console.WriteLine("What type of Fuel do you use?");
+                    //           addBus.Fuel = Console.ReadLine();
+                    Console.WriteLine("What is your Licence Number?");
+                    addBus.LicenceNumber = Console.ReadLine();
+                    Console.WriteLine("How many Wheels does your Bus have?");
+                    addBus.NumberWheel = int.Parse(Console.ReadLine());
+                    Console.WriteLine("How many passengers can fit in the Bus?");
+                    addBus.PassengerCapacity = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Is it a school bus?");
+                    addBus.SchoolBus = Console.ReadLine();
+                    return addBus;
 
-                     case (int)Vehicle.TypeEnum.Truck:
-                         Truck addTruck = new Truck();
-                         Console.WriteLine("What is the Color of the Truck?");
-                         addTruck.Color = Console.ReadLine();
-                         Console.WriteLine("What type of Fuel do you use?");
-                         addTruck.Fuel = Console.ReadLine();
-                         Console.WriteLine("What is your Licence Number?");
-                         addTruck.LicenceNumber = Console.ReadLine();
-                         Console.WriteLine("How many Wheels does your Truck have?");
-                         addTruck.NumberWheel = int.Parse(Console.ReadLine());
-                         Console.WriteLine("What is the length of your Truck?");
-                         addTruck.TruckLenght = int.Parse(Console.ReadLine());
-                         Console.WriteLine("What is it loaded with?");
-                         addTruck.LoadedWith = Console.ReadLine();
-                         return addTruck;
+                case (int)Vehicle.TypeEnum.Truck:
+                    Truck addTruck = new Truck();
+                    Console.WriteLine("What is the Color of the Truck?");
+                    addTruck.Color = Console.ReadLine();
+                    Console.WriteLine("What type of Fuel do you use?");
+                    //            addTruck.Fuel = Console.ReadLine();
+                    Console.WriteLine("What is your Licence Number?");
+                    addTruck.LicenceNumber = Console.ReadLine();
+                    Console.WriteLine("How many Wheels does your Truck have?");
+                    addTruck.NumberWheel = int.Parse(Console.ReadLine());
+                    Console.WriteLine("What is the length of your Truck?");
+                    addTruck.TruckLenght = int.Parse(Console.ReadLine());
+                    Console.WriteLine("What is it loaded with?");
+                    addTruck.LoadedWith = Console.ReadLine();
+                    return addTruck;
                 default:
                     return null;
             }
@@ -148,7 +150,7 @@ namespace Garage
 
         public static void ListVehicles(List<Vehicle> vehicles)
         {
-            
+
             int i = 0;
             foreach (Vehicle vehicle in vehicles)
             {
@@ -157,6 +159,13 @@ namespace Garage
             }
             Console.ReadLine();
         }
+
+        public static void SearchVehicles()
+        {
+            Console.WriteLine("This is a test comment to test Github Commit");
+
+        }
+
 
         public static int AskGarageSize()
         {
@@ -171,14 +180,15 @@ namespace Garage
                 Console.WriteLine("Please try again, only positive numbers accepted.");
             }
         }
-
+        /*
         public static (string, string) SearchMenu(List<Vehicle> vehicles)
+        public static (criteria, condition) SearchMenu(List<Vehicle> vehicles)
         {
             int option;
             while(true)
             {
                 Console.Clear();
-                Console.WriteLine(
+                Console.WriteLine("" +
                     "-- Vehicle Search Menu --\n" +
                     "Possible search options:\n" +
                     "[1] Vehicle Type\n" +
@@ -186,7 +196,7 @@ namespace Garage
                     "[3] Licence Number\n" +
                     "[4] Fuel Type\n"
                     );
-
+                /*
                 Console.WriteLine("Please make your selection: ");
                 string input = Console.ReadLine();
                 if (int.TryParse(input, out option) && option > 0 && option <= 4) break; //Break if valid selection
@@ -207,6 +217,9 @@ namespace Garage
                     Console.WriteLine("Please type Licence Number to search for:");
                     return ("LicenceNumber", Console.ReadLine());
                 case 4:
+        //Search for Licence Number
+                    Console.WriteLine("Please type Licence Number to search for:");
+                    return ("Fuel", Console.ReadLine());
                     break;
                 default:
                     break;
@@ -218,10 +231,12 @@ namespace Garage
             Console.WriteLine("Please type color to search for:");
             return ("Color", Console.ReadLine());
         }
-
+*/
         public static void PrintHeader(string header)
         {
             Console.WriteLine($" -- {header} --");
         }
     }
 }
+     
+
