@@ -67,11 +67,9 @@ namespace Garage
                     Console.WriteLine("What is the Color of the Motorcycle?");
                     addMotorcycle.Color = Console.ReadLine();
                     Console.WriteLine("What type of Fuel do you use?");
-<<<<<<< HEAD
-        //            addMotorcycle.Fuel = Console.ReadLine();
-=======
+
                     addMotorcycle.Fuel = Console.ReadLine();
->>>>>>> 552b18ce6a1ab683ffbe942813fb2521a4406d17
+
                     Console.WriteLine("What is your Licence Number?");
                     addMotorcycle.LicenceNumber = Console.ReadLine();
                     Console.WriteLine("How many Wheels does your Motorcycle have?");
@@ -87,11 +85,9 @@ namespace Garage
                     Console.WriteLine("What is the Color of the Car?");
                     addCar.Color = Console.ReadLine();
                     Console.WriteLine("What type of Fuel do you use?");
-<<<<<<< HEAD
-                    //           addCar.Fuel = Console.ReadLine();
-=======
+
                     addCar.Fuel = Console.ReadLine();
->>>>>>> 552b18ce6a1ab683ffbe942813fb2521a4406d17
+
                     Console.WriteLine("What is your Licence Number?");
                     addCar.LicenceNumber = Console.ReadLine();
                     Console.WriteLine("How many Wheels does your Car have?");
@@ -107,11 +103,9 @@ namespace Garage
                     Console.WriteLine("What is the Color of the Bus?");
                     addBus.Color = Console.ReadLine();
                     Console.WriteLine("What type of Fuel do you use?");
-<<<<<<< HEAD
-                    //           addBus.Fuel = Console.ReadLine();
-=======
+
                     addBus.Fuel = Console.ReadLine();
->>>>>>> 552b18ce6a1ab683ffbe942813fb2521a4406d17
+
                     Console.WriteLine("What is your Licence Number?");
                     addBus.LicenceNumber = Console.ReadLine();
                     Console.WriteLine("How many Wheels does your Bus have?");
@@ -127,11 +121,9 @@ namespace Garage
                     Console.WriteLine("What is the Color of the Truck?");
                     addTruck.Color = Console.ReadLine();
                     Console.WriteLine("What type of Fuel do you use?");
-<<<<<<< HEAD
-                    //            addTruck.Fuel = Console.ReadLine();
-=======
+
                     addTruck.Fuel = Console.ReadLine();
->>>>>>> 552b18ce6a1ab683ffbe942813fb2521a4406d17
+
                     Console.WriteLine("What is your Licence Number?");
                     addTruck.LicenceNumber = Console.ReadLine();
                     Console.WriteLine("How many Wheels does your Truck have?");
@@ -176,7 +168,7 @@ namespace Garage
             Console.ReadLine();
         }
 
-<<<<<<< HEAD
+
         public static void SearchVehicles()
         {
             Console.WriteLine("This is a test comment to test Github Commit");
@@ -184,12 +176,11 @@ namespace Garage
         }
 
 
-=======
         public static void Intro()
         {
             Console.WriteLine("\n   Welcome to Garage Simulator 2021!\n");
         }
->>>>>>> 552b18ce6a1ab683ffbe942813fb2521a4406d17
+
         public static int AskGarageSize()
         {
 
@@ -203,9 +194,8 @@ namespace Garage
                 Console.WriteLine("Please try again, only positive numbers accepted.");
             }
         }
-        /*
+        
         public static (string, string) SearchMenu(List<Vehicle> vehicles)
-        public static (criteria, condition) SearchMenu(List<Vehicle> vehicles)
         {
             int option;
             while(true)
@@ -219,7 +209,7 @@ namespace Garage
                     "[3] Licence Number\n" +
                     "[4] Fuel Type\n"
                     );
-                /*
+                
                 Console.WriteLine("Please make your selection: ");
                 string input = Console.ReadLine();
                 if (int.TryParse(input, out option) && option > 0 && option <= 4) break; //Break if valid selection
@@ -240,10 +230,9 @@ namespace Garage
                     Console.WriteLine("Please type Licence Number to search for:");
                     return ("LicenceNumber", Console.ReadLine());
                 case 4:
-        //Search for Licence Number
+                   //Search for Licence Number
                     Console.WriteLine("Please type Licence Number to search for:");
                     return ("Fuel", Console.ReadLine());
-                    break;
                 default:
                     break;
             }
@@ -254,7 +243,7 @@ namespace Garage
             Console.WriteLine("Please type color to search for:");
             return ("Color", Console.ReadLine());
         }
-*/
+
         public static void PrintHeader(string header)
         {
             Console.WriteLine($" -- {header} --");
