@@ -17,7 +17,7 @@ namespace Garage
 
         public override string ToString()
         {
-            return base.ToString() + $" Length of Truck: {TruckLenght}" +
+            return base.ToString() + $"\n\tLength of Truck: {TruckLenght}" +
                 $"\n\tLoaded with: {LoadedWith}";
         }
     }
