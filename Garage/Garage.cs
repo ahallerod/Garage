@@ -36,17 +36,40 @@ namespace Garage
             return ParkedVehicles.Where(v => v.Type == type).ToList();
         }
 
-        public List<Vehicle> SearchVehicle(string searchType, string searchCriteria)
+        /*public List<Vehicle> SearchVehicle((string searchType, string searchCriteria))
+        {
+            return ListTypeOfVehicles(searchCriteria);
+        }
+
+        public List<Vehicle> SearchVehicle(string searchType, Vehicle.ColorEnum searchCriteria)
+        {
+            return ParkedVehicles.Where(v => v.Color == searchCriteria).ToList();
+        }*/
+
+        public List<Vehicle> SearchVehicle(string searchType, int searchCriteria)
         {
             switch (searchType)
             {
                 case "Color":
-                    return ParkedVehicles.Where(v => v.Color.ToLower() == searchCriteria.ToLower()).ToList();
-                case "LicenceNumber":
-                    return ParkedVehicles.Where(v => v.LicenceNumber.ToLower() == searchCriteria.ToLower()).ToList();
+                    return ParkedVehicles.Where(v => ((int)v.Color) == searchCriteria).ToList();
             }
             //Dummy code, remove later
-                return ParkedVehicles.Where(v => v.Color.ToLower() == searchCriteria.ToLower()).ToList();
+                return ParkedVehicles.Where(v => ((int)v.Color) == searchCriteria).ToList();
+        }
+
+        public List<Vehicle> SearchVehicle(string searchType, string searchCriteria)
+        {
+            switch (searchType)
+            {
+                case "LicenceNumber":
+                    return ParkedVehicles.Where(v => v.LicenceNumber.ToLower() == searchCriteria.ToLower()).ToList();
+                case "Color":
+                        return ParkedVehicles.Where(v => v.Color == (Vehicle.ColorEnum)Enum.Parse(typeof(Vehicle.ColorEnum), searchCriteria)).ToList();
+                    
+
+            }
+            //Dummy code, remove later
+            return ParkedVehicles.Where(v => v.LicenceNumber.ToLower() == searchCriteria.ToLower()).ToList();
         }
 
     }
