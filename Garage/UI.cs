@@ -17,6 +17,12 @@ namespace Garage
             Console.WriteLine(header);
         }
 
+        public static void ClearScreen()
+        {
+            Console.Clear();
+            Header();
+        }
+
         //variabel som kan återanvändas för förfrågan av user input
         static string requestedInput;
         public static void TypeOption()
@@ -126,7 +132,7 @@ namespace Garage
         {
             while (true)
             {
-                Console.Clear();
+                ClearScreen();
                 Console.WriteLine("\n -- Main menu --");
                 Console.WriteLine("1. List all vehicles parked in the garage.");
                 Console.WriteLine("2. Add vehicle to garage");
@@ -258,8 +264,11 @@ namespace Garage
 
         }
 
-        public static void ListVehicles(List<Vehicle> vehicles)
+        public static bool ListVehicles(List<Vehicle> vehicles)
         {
+
+            if (vehicles.Count == 0) return false;
+
 
             int i = 0;
             foreach (Vehicle vehicle in vehicles)
@@ -267,7 +276,7 @@ namespace Garage
                 i++;
                 Console.WriteLine($"{i}. {vehicle}");
             }
-            Console.ReadLine();
+            return true;
         }
 
         public static void Intro()
@@ -295,7 +304,6 @@ namespace Garage
             int option;
             while(true)
             {
-                Console.Clear();
                 Console.WriteLine("" +
                     "-- Vehicle Search Menu --\n" +
                     "Possible search options:\n" +
@@ -318,18 +326,15 @@ namespace Garage
                     return ("Type", Console.ReadLine());
                 case 2:
                     //Search for Color
-                    //Console.WriteLine("Please type color to search for:");
-                    //UI.PrintEnumValues(Enum.GetValues(typeof(Vehicle.ColorEnum)));
-                    PrintEnumValues(Enum.GetValues(typeof(Vehicle.ColorEnum)));
+                    //PrintEnumValues(Enum.GetValues(typeof(Vehicle.ColorEnum)));
                     return ("Color", AskColor().ToString());
                 case 3:
                     //Search for Licence Number
                     Console.WriteLine("Please type Licence Number to search for:");
                     return ("LicenceNumber", Console.ReadLine());
                 case 4:
-                   //Search for Licence Number
-                    Console.WriteLine("Please type Licence Number to search for:");
-                    return ("Fuel", Console.ReadLine());
+                   //Search for Fuel
+                    return ("Fuel", AskFuel().ToString());
                 default:
                     break;
             }
