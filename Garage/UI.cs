@@ -21,35 +21,32 @@ namespace Garage
         static string requestedInput;
         public static void TypeOption()
         {
-            Console.Write("Please make your selection: ");
+            Console.Write("\nPlease make your selection: ");
         }
-/*
-        public static void YesNo()
+
+        public static string YesNo()
         {
-            //Console.WriteLine("Is it a Mountain Bike?");
-            //addBicycle.IsMountainBike = Console.ReadLine();
-            Console.WriteLine("[Y] Yes" +
-                "\n[N] No");
-            UI.TypeOption();
-            requestedInput = Console.ReadLine().ToLower().Trim();
             while (true)
             {
-                if (requestedInput == "Y")
-                {
-                    Console.WriteLine("Yes saved");
-                }
-                else if (requestedInput == "N")
-                {
-                    Console.WriteLine("No saved");
-                }
-                else
-                {
-                    Console.WriteLine("Invalid option");
-                }
 
+                Console.WriteLine("[Y] Yes" +
+                "\n[N] No");
+                UI.TypeOption();
+                requestedInput = Console.ReadLine().ToLower().Trim();
+                if (requestedInput == "y" || requestedInput == "yes")
+                {
+                    requestedInput = "Yes";
+                    return requestedInput;
+                }
+                else if (requestedInput == "n" || requestedInput == "no")
+                {
+                    requestedInput = "No";
+                    return requestedInput;
+                }
             }
+
         }
-        */
+        
         public static Vehicle.NumberWheelEnum AskWheel()
         {
             int count = 0;
@@ -74,7 +71,7 @@ namespace Garage
         {
             while (true)
             {
-                Console.Write("Type your LicenceNumber[AAA000]: ");
+                Console.Write("Type your LicenceNumber[ABC123]: ");
                 const int MaxLength = 6;
                 requestedInput = Console.ReadLine().ToUpper().Trim();
                 if (requestedInput.Length == MaxLength) return requestedInput;
@@ -127,6 +124,7 @@ namespace Garage
             while (true)
             {
                 Console.Clear();
+                UI.Header();
                 Console.WriteLine("\n -- Main menu --");
                 Console.WriteLine("1. List all vehicles parked in the garage.");
                 Console.WriteLine("2. Add vehicle to garage");
@@ -134,7 +132,7 @@ namespace Garage
                 Console.WriteLine("4. Search for vehicles.");
                 Console.WriteLine("5. Exit Program.");
 
-                Console.Write("Please type a number: ");
+                UI.TypeOption();
                 int option;
 
                 string input = Console.ReadLine();
@@ -147,6 +145,8 @@ namespace Garage
 
         public static Vehicle AddVehicle()
         {
+            Console.Clear();
+            UI.Header();
             Console.WriteLine("Choose a Vehicle-Type to the park in the garage.");
             Console.WriteLine("[1] Bicycle" +
                 "\n[2] Motorcycle" +
@@ -164,13 +164,13 @@ namespace Garage
                     {
                         Color = UI.AskColor(),
                         Fuel = UI.AskFuel(),
-                        LicenceNumber = UI.LicenceNumber(),
+                        //LicenceNumber = UI.LicenceNumber(),       //Bicycle doesnt have licence number
                         NumberWheel = UI.AskWheel()
                     };
-                    Console.WriteLine("Is it a Mountain Bike?");
-                    //addBicycle.IsMountainBike = YesNo();
-                    Console.WriteLine("Who is your vehicle suitable for?");
-                    addBicycle.SuitableFor = Console.ReadLine();
+                    Console.WriteLine("Is it a mountain bike?");
+                    addBicycle.IsMountainBike = YesNo();
+                    Console.WriteLine("Is suitable for kids?");
+                    addBicycle.SuitsKids = YesNo();
                     return addBicycle;
 
                 case (int)Vehicle.TypeEnum.Motorcycle:
@@ -184,7 +184,7 @@ namespace Garage
                     };
 
                     Console.WriteLine("Is it Made in Sweden?");
-                    addMotorcycle.MadeInSweden = Console.ReadLine();
+                    addMotorcycle.MadeInSweden = YesNo();
                     Console.WriteLine("Model year?");
                     addMotorcycle.YearModel = int.Parse(Console.ReadLine());
                     return addMotorcycle;
@@ -202,7 +202,7 @@ namespace Garage
                     Console.WriteLine("What's the brand of your Car?");
                     addCar.Brand = Console.ReadLine();
                     Console.WriteLine("Does it have more than 4 doors?");
-                    addCar.Has4Doors = Console.ReadLine();
+                    addCar.Has4Doors = YesNo();
                     return addCar;
 
                 case (int)Vehicle.TypeEnum.Bus:
@@ -215,10 +215,10 @@ namespace Garage
                         NumberWheel = UI.AskWheel()
                     };
 
-                    Console.WriteLine("How many passengers can fit in the Bus?");
-                    addBus.PassengerCapacity = Console.ReadLine();
+                    Console.WriteLine("Is Capacity more than 30?");
+                    addBus.PassengerCapacity = YesNo();
                     Console.WriteLine("Is it a school bus?");
-                    addBus.SchoolBus = Console.ReadLine();
+                    addBus.SchoolBus = YesNo();
                     return addBus;
 
                 case (int)Vehicle.TypeEnum.Truck:
@@ -243,6 +243,8 @@ namespace Garage
 
         public static Vehicle RemoveVehicle(List<Vehicle> vehicles)
         {
+            Console.Clear();
+            UI.Header();
             Console.WriteLine("Remove a vehicle from the garage." +
                 "Choose a number to remove:");
             int index = 0;
@@ -254,13 +256,13 @@ namespace Garage
             Console.WriteLine("Remove vehicles from the garage.");
             int.TryParse(Console.ReadLine(), out int userInput);
             return vehicles[userInput - 1];
-            //Console.WriteLine($"{userInput}. {vehicles} has been moved.");
 
         }
 
         public static void ListVehicles(List<Vehicle> vehicles)
         {
-
+            Console.Clear();
+            UI.Header();
             int i = 0;
             foreach (Vehicle vehicle in vehicles)
             {
@@ -280,6 +282,7 @@ namespace Garage
         {
 
             Console.WriteLine("How many parking spaces will this garage have?");
+            Console.Write("Please insert a number: ");
             string input;
             int option;
             while (true)
@@ -328,7 +331,7 @@ namespace Garage
                     return ("LicenceNumber", Console.ReadLine());
                 case 4:
                    //Search for Licence Number
-                    Console.WriteLine("Please type Licence Number to search for:");
+                    Console.WriteLine("Please type Fuel Type to search for:");
                     return ("Fuel", Console.ReadLine());
                 default:
                     break;
@@ -353,8 +356,8 @@ namespace Garage
                 Console.WriteLine(
                     "Do you want to\n" +
                     "[1] Create a brand new Garage (This will overwrite any previously saved Garage)\n" +
-                    "[2] Load the last Garage\n");
-                
+                    "[2] Load the last Garage");
+                UI.TypeOption();
                 string input = Console.ReadLine();
                 if (int.TryParse(input, out option) && option > 0 && option <= 2) break; //Break if valid selection
                 Console.WriteLine("Please try again, not a valid selection.");

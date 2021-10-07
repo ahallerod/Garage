@@ -15,8 +15,7 @@ namespace Garage
                 garage = FileHandler.LoadGarage();
             else
                 garage.Capacity = UI.AskGarageSize();
-            
-                
+
 
             while (true)
             {

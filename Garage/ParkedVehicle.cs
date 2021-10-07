@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Garage
 {
-    class ParkedVehicle
+    public class ParkedVehicle
     {
-      /*
-        Bicycle mountainBike = new Bicycle { Color = "Blue", Fuel = "None", LicenceNumber = null, NumberWheel = 2, IsMountainBike = "Yes", SuitableFor = "Adult" };
-        Bicycle racerBike = new Bicycle { Color = "Matte Black", Fuel = "None", LicenceNumber = null, NumberWheel = 2, IsMountainBike = "No", SuitableFor = "Athlete" };
+      
+        Bicycle mountainBike = new Bicycle { Color = (Vehicle.ColorEnum)2, Fuel = (Vehicle.FuelEnum)3, LicenceNumber = "UDJ123", NumberWheel = (Vehicle.NumberWheelEnum)1, IsMountainBike = "Yes", SuitsKids = "No" };
+        Bicycle racerBike = new Bicycle { Color = (Vehicle.ColorEnum)4, Fuel = (Vehicle.FuelEnum)3, LicenceNumber = "UEG233", NumberWheel = (Vehicle.NumberWheelEnum)1, IsMountainBike = "No", SuitsKids = "No" };
 
-        Motorcycle vesslaMotorcycle = new Motorcycle { Color = "Grey", Fuel = "Electric", LicenceNumber = "AJS239", NumberWheel = 2, NumberMirror = 2, YearModel = 2020 };
-        Motorcycle yamahaMotorcycle = new Motorcycle { Color = "Red", Fuel = "Petrol", LicenceNumber = "AST392", NumberWheel = 2, NumberMirror = 2, YearModel = 1982 };
-      */
+        Motorcycle vesslaMotorcycle = new Motorcycle { Color = (Vehicle.ColorEnum)3, Fuel = (Vehicle.FuelEnum)2, LicenceNumber = "HEK395", NumberWheel = (Vehicle.NumberWheelEnum)1, MadeInSweden = "Yes", YearModel = 2020 };
+        Motorcycle yamahaMotorcycle = new Motorcycle { Color = (Vehicle.ColorEnum)5, Fuel = (Vehicle.FuelEnum)1, LicenceNumber = "PEW237", NumberWheel = (Vehicle.NumberWheelEnum)1, MadeInSweden = "No", YearModel = 1987 };
+
 
     }
 }
