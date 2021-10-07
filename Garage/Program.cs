@@ -11,10 +11,12 @@ namespace Garage
             UI.Intro();
 
             Garage garage = new();
-            if (UI.CreateNew())
-                garage.Capacity = UI.AskGarageSize();
-            else
+            if (FileHandler.CheckForSavedFiles() && UI.AskLoadGarage())
                 garage = FileHandler.LoadGarage();
+            else
+                garage.Capacity = UI.AskGarageSize();
+            
+                
 
             while (true)
             {
@@ -36,10 +38,8 @@ namespace Garage
                         break;
                     case 4:
                         //Search Vehicles
-                       /*
-                        * (string searchType, string searchCondition) = UI.SearchMenu(garage.ListVehicles());
+                        (string searchType, string searchCondition) = UI.SearchMenu(garage.ListVehicles());
                         UI.ListVehicles(garage.SearchVehicle(searchType, searchCondition));
-                       */
                         break;
                     case 5:
                         //Exit Program

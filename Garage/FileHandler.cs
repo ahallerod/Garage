@@ -19,7 +19,6 @@ namespace Garage
             string jsonGarageSize = JsonSerializer.Serialize(garage.Capacity);
             string jsonParkedVehicles = JsonSerializer.Serialize<IEnumerable<Vehicle>>(garage.ParkedVehicles);
 
-            Console.WriteLine( DeserializeVehicles(jsonParkedVehicles));
             File.WriteAllText(path + @"garage.json", jsonGarageSize);
             File.WriteAllText(path + @"parkedvehicles.json", jsonParkedVehicles);
         }
@@ -27,6 +26,12 @@ namespace Garage
         public static IEnumerable<Vehicle> DeserializeVehicles(string json)
         {
             return JsonSerializer.Deserialize<IEnumerable<Vehicle>>(json);
+        }
+
+        public static bool CheckForSavedFiles()
+        {
+            if (!File.Exists(path + @"garage.json") || !File.Exists(path + @"parkedvehicles.json")) return false;
+            return true;
         }
 
         public static Garage LoadGarage()

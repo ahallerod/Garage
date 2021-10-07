@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Garage
 {
-    public class UI
+    public static class UI
     {
 
         public static void Header()
@@ -142,7 +142,6 @@ namespace Garage
                     return option;
 
                 Console.WriteLine("\nNot a valid option. Please try again.");
-                Console.ReadLine();
             }
         }
 
@@ -271,12 +270,6 @@ namespace Garage
             Console.ReadLine();
         }
 
-
-        public static void SearchVehicles()
-        {
-
-        }
-
         public static void Intro()
         {
             UI.Header();
@@ -325,8 +318,10 @@ namespace Garage
                     return ("Type", Console.ReadLine());
                 case 2:
                     //Search for Color
-                    Console.WriteLine("Please type color to search for:");
-                    return ("Color", Console.ReadLine());
+                    //Console.WriteLine("Please type color to search for:");
+                    //UI.PrintEnumValues(Enum.GetValues(typeof(Vehicle.ColorEnum)));
+                    PrintEnumValues(Enum.GetValues(typeof(Vehicle.ColorEnum)));
+                    return ("Color", AskColor().ToString());
                 case 3:
                     //Search for Licence Number
                     Console.WriteLine("Please type Licence Number to search for:");
@@ -351,26 +346,32 @@ namespace Garage
             Console.WriteLine($" -- {header} --");
         }
 
-        public static bool CreateNew()
+        public static bool AskLoadGarage()
         {
             int option;
-            while (true)
-            {
+            while(true){
                 Console.WriteLine(
                     "Do you want to\n" +
                     "[1] Create a brand new Garage (This will overwrite any previously saved Garage)\n" +
                     "[2] Load the last Garage\n");
-
+                
                 string input = Console.ReadLine();
                 if (int.TryParse(input, out option) && option > 0 && option <= 2) break; //Break if valid selection
                 Console.WriteLine("Please try again, not a valid selection.");
             }
-            if (option == 1) return true;
-            return false;
+            if (option == 1) return false;
+            return true;
+        }
 
-
+        public static void PrintEnumValues(Array e)
+        {
+            for(int i=0; i >= e.Length; i++)
+            {
+                Console.Write("[" + i + "] ");
+                Console.WriteLine(e);
+            }
         }
     }
 }
-
+     
 
