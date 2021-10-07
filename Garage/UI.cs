@@ -21,7 +21,7 @@ namespace Garage
         static string requestedInput;
         public static void TypeOption()
         {
-            Console.Write("Please type an option: ");
+            Console.Write("Please make your selection: ");
         }
 /*
         public static void YesNo()
@@ -311,8 +311,8 @@ namespace Garage
                     "[3] Licence Number\n" +
                     "[4] Fuel Type\n"
                     );
-                
-                Console.WriteLine("Please make your selection: ");
+
+                UI.TypeOption();
                 string input = Console.ReadLine();
                 if (int.TryParse(input, out option) && option > 0 && option <= 4) break; //Break if valid selection
                 Console.WriteLine("Please try again, only positive numbers accepted.");
