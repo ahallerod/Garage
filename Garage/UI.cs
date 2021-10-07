@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Garage
 {
-    public class UI
+    public static class UI
     {
         public static int PrintMainMenu()
         {
@@ -25,7 +25,6 @@ namespace Garage
                     return option;
 
                 Console.WriteLine("\nNot a valid option. Please try again.");
-                Console.ReadLine();
             }
         }
 
@@ -249,7 +248,7 @@ namespace Garage
             Console.WriteLine($" -- {header} --");
         }
 
-        public static bool CreateNew()
+        public static bool AskLoadGarage()
         {
             int option;
             while(true){
@@ -262,11 +261,11 @@ namespace Garage
                 if (int.TryParse(input, out option) && option > 0 && option <= 2) break; //Break if valid selection
                 Console.WriteLine("Please try again, not a valid selection.");
             }
-            if (option == 1) return true;
-            return false;
-            
-
+            if (option == 1) return false;
+            return true;
         }
+
+
     }
 }
      
