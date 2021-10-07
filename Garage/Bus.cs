@@ -7,7 +7,7 @@ namespace Garage
 {
     public class Bus : Vehicle
     {
-        public int PassengerCapacity { get; set; }
+        public string PassengerCapacity { get; set; }
         public string SchoolBus { get; set; }
         public Bus()
         {
@@ -16,8 +16,8 @@ namespace Garage
 
         public override string ToString()
         {
-            return base.ToString() + $" Passenger Capacity: {PassengerCapacity}" +
-                $"\n\tIs Schoolbus: {SchoolBus}";
+            return base.ToString() + $"\n\tPassenger Capacity 30+: {PassengerCapacity}" +       //Yes,No
+                $"\n\tIs Schoolbus: {SchoolBus}";       //Yes,No
         }
 
     }

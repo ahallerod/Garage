@@ -18,7 +18,7 @@ namespace Garage
 
         public override string ToString()
         {
-            return base.ToString() + $"\n\tIs Mountainbike: {IsMountainBike}" +
+            return base.ToString() + $"\n\tIs Mountainbike: {IsMountainBike}" +     //Yes,No
                 $"\n\tSuitable for: {SuitableFor}";
             
         }

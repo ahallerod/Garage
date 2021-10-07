@@ -7,7 +7,7 @@ namespace Garage
 {
     public class Motorcycle : Vehicle
     {
-        public int NumberMirror { get; set; }
+        public string MadeInSweden { get; set; }
 
         public int YearModel { get; set; }
         public Motorcycle()
@@ -17,7 +17,7 @@ namespace Garage
 
         public override string ToString()
         {
-            return base.ToString() + $" Number Mirrors: {NumberMirror}" +
+            return base.ToString() + $"\n\tProduced in Sweden: {MadeInSweden}" +           //yes, no
                 $"\n\tModel Year: {YearModel}";
         }
     }

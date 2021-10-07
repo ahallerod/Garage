@@ -9,7 +9,7 @@ namespace Garage
     {
         public string Brand { get; set; }
 
-        public string Model { get; set; }
+        public string Has4Doors { get; set; }
         public Car()
         {
             Type = TypeEnum.Car;
@@ -17,8 +17,8 @@ namespace Garage
 
         public override string ToString()
         {
-            return base.ToString() + $" Brand: {Brand}" +
-                $"\n\tModel: {Model}";
+            return base.ToString() + $"\n\tBrand: {Brand}" +
+                $"\n\tHas more than 4 doors: {Has4Doors}";      //Yes,No
         }
     }
 }

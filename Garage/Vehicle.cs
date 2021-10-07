@@ -9,29 +9,19 @@ namespace Garage
     {
         public enum TypeEnum { Vehicle, Bicycle, Motorcycle, Car, Bus, Truck }   //{ Vehicle{0}, Bicycle{1}, Motorcycle{2}, Car{3}, Bus{4}, Truck{5} }
         public TypeEnum Type { get; set; }
-        public string Color { get; set; }
+        public enum ColorEnum { Black = 1, Blue, Green, Red, White}             //Black{1}, Blue{2}, Green{3}, Red{4}, White{5}
+        public ColorEnum Color { get; set; }
         public string LicenceNumber { get; set; }
-        public int NumberWheel { get; set; }
-        //
-        public enum FuelEnum {Gas = 1, Electric };
+        public enum NumberWheelEnum { Two = 1, Four, Six, Eight }
+        public NumberWheelEnum NumberWheel { get; set; }
+        public enum FuelEnum { Gas = 1, Electric, Legs };
         public FuelEnum Fuel { get; set; }
 
         public Vehicle()
         {
             Type = TypeEnum.Vehicle;
         }
-
-        public void askFuel()
-        {
-            int count = 0;
-            foreach (FuelEnum f in Enum.GetValues(typeof(FuelEnum)))
-            {
-                count++;
-                Console.Write("[" + count + "] ");
-                Console.WriteLine(f);
-                
-            }
-        }
+        
         public override string ToString()
         {
             return $"-----" +
@@ -42,8 +32,4 @@ namespace Garage
                 $"\n\tFuel: {Fuel}";
         }
     }
-
-
-
-    
 }
