@@ -9,7 +9,6 @@ namespace Garage
         static void Main(string[] args)
         {
             UI.Intro();
-
             Garage garage = new();
             if (FileHandler.CheckForSavedFiles() && UI.AskLoadGarage())
                 garage = FileHandler.LoadGarage();
@@ -24,7 +23,7 @@ namespace Garage
                 {
                     case 1:
                         //List Vehicles
-                        UI.PrintHeader("All Vehicles Parked in the Garage:");
+                        //UI.PrintHeaderText("All Vehicles Parked in the Garage:");
                         UI.ListVehicles(garage.ListVehicles());
                         break;
                     case 2:
