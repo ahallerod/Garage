@@ -8,7 +8,8 @@ namespace Garage
     public class Truck : Vehicle
     {
         public decimal TruckLenght { get; set; }
-        public string LoadedWith { get; set; }
+        public enum LoadedWithEnum { Rocks = 1, Sand, Trash, Other}
+        public LoadedWithEnum LoadedWith { get; set; }
 
         public Truck()
         {
@@ -17,7 +18,7 @@ namespace Garage
 
         public override string ToString()
         {
-            return base.ToString() + $"\n\tLength of Truck: {TruckLenght}" +
+            return base.ToString() + $"\n\tLength of Truck: {TruckLenght}m" +
                 $"\n\tLoaded with: {LoadedWith}";
         }
     }

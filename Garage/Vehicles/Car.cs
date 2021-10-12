@@ -7,7 +7,8 @@ namespace Garage
 {
     public class Car : Vehicle
     {
-        public string Brand { get; set; }
+        public enum BrandEnum { Volvo = 1, Volkswagen, SAAB, BMW, AUDI, Porsche, }
+        public BrandEnum Brand { get; set; }
 
         public string Has4Doors { get; set; }
         public Car()
