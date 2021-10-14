@@ -10,10 +10,11 @@ namespace Garage
         {
             UI.Intro();
             Garage garage = new();
-            if (FileHandler.CheckForSavedFiles() && UI.AskLoadGarage())
+
+            if (FileHandler.CheckForSavedFiles() && UI.AskLoadGarage())     //option 2
                 garage = FileHandler.LoadGarage();
             else
-                garage.Capacity = UI.AskGarageSize();
+                garage.Capacity = UI.AskGarageSize();                       //option 1
 
 
             while (true)
@@ -23,7 +24,6 @@ namespace Garage
                 {
                     case 1:
                         //List Vehicles
-                        //UI.PrintHeaderText("All Vehicles Parked in the Garage:");
                         UI.ListVehicles(garage.ListVehicles());
                         break;
                     case 2:
@@ -43,6 +43,8 @@ namespace Garage
                         //Exit Program
                         FileHandler.SaveGarage(garage);
                         return;
+                    default:
+                        break;
                 }
             }
         }
