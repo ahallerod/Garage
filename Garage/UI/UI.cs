@@ -17,9 +17,7 @@ namespace Garage
             Console.WriteLine(header);
         }
 
-        //variabel som kan återanvändas för förfrågan av user input
-        static string requestedInput;
-        public static void TypeOption()
+        public static void Intro()
         {
             UI.Header();
             Console.WriteLine("\n\tWelcome to Garage Simulator 2021!\n");
@@ -78,10 +76,10 @@ namespace Garage
                 Console.WriteLine("\nNot a valid option. Please try again.");
             }
         }
-        public static void ListVehicles(List<Vehicle> vehicles)
+        public static bool ListVehicles(List<Vehicle> vehicles)
         {
-            Console.Clear();
-            UI.Header();
+            if (vehicles.Count == 0) return false;
+
             Console.WriteLine("All Vehicles Parked in the Garage:");
             int i = 0;
             foreach (Vehicle vehicle in vehicles)
@@ -89,7 +87,8 @@ namespace Garage
                 i++;
                 Console.WriteLine($"{i}. {vehicle}");
             }
-            Console.ReadLine();
+
+            return true;
         }
         public static Vehicle AddVehicle()
         {
