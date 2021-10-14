@@ -7,6 +7,7 @@ namespace Garage
 {
     public class Garage
     {
+        
         public IEnumerable<Vehicle> ParkedVehicles { get; set; }
         public int Capacity { get; set; }
 
@@ -48,10 +49,20 @@ namespace Garage
                     return ParkedVehicles.Where(v => v.Fuel == (Vehicle.FuelEnum)Enum.Parse(typeof(Vehicle.FuelEnum), searchCriteria)).ToList();
                 case "Type":
                     return ListTypeOfVehicles((Vehicle.TypeEnum)Enum.Parse(typeof(Vehicle.TypeEnum), searchCriteria));
-
             }
             //Dummy code, remove later
             return ParkedVehicles.Where(v => v.LicenceNumber.ToLower() == searchCriteria.ToLower()).ToList();
+        }
+
+        public SerializationGarage ConvertGarageForSerialization()
+        {
+             return new SerializationGarage(this.Capacity, this.ParkedVehicles.ToList());
+        }
+
+        public void LoadGarage(SerializationGarage sg)
+        {
+            this.Capacity = sg.Size;
+            this.ParkedVehicles = sg.ParkedVehicles;
         }
 
     }
