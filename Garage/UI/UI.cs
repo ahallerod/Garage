@@ -76,10 +76,8 @@ namespace Garage
                 Console.WriteLine("\nNot a valid option. Please try again.");
             }
         }
-        public static bool ListVehicles(List<Vehicle> vehicles)
+        public static void ListVehicles(List<Vehicle> vehicles)
         {
-            if (vehicles.Count == 0) return false;
-
             Console.WriteLine("All Vehicles Parked in the Garage:");
             int i = 0;
             foreach (Vehicle vehicle in vehicles)
@@ -87,9 +85,8 @@ namespace Garage
                 i++;
                 Console.WriteLine($"{i}. {vehicle}");
             }
-
-            return true;
         }
+
         public static Vehicle AddVehicle()
         {
             Console.Clear();
@@ -238,7 +235,7 @@ namespace Garage
                 case 4:
                    //Search for Fuel
                     Console.WriteLine("Please type Fuel Type to search for:");
-                    return ("Fuel", Console.ReadLine());
+                    return ("Fuel", UIHelper.AskFuel().ToString());
                 default:
                     break;
             }

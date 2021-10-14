@@ -16,6 +16,8 @@ namespace Garage
             ParkedVehicles = new List<Vehicle>();
             Capacity = 0;
         }
+
+        public bool IsAnyVehicleParked() { return ParkedVehicles.Any(); }
         
         public void AddVehicle(Vehicle vehicle)
         {
@@ -50,8 +52,8 @@ namespace Garage
                 case "Type":
                     return ListTypeOfVehicles((Vehicle.TypeEnum)Enum.Parse(typeof(Vehicle.TypeEnum), searchCriteria));
             }
-            //Dummy code, remove later
-            return ParkedVehicles.Where(v => v.LicenceNumber.ToLower() == searchCriteria.ToLower()).ToList();
+
+            return null;
         }
 
         public SerializationGarage ConvertGarageForSerialization()
