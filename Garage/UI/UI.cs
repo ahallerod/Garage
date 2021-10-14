@@ -77,11 +77,8 @@ namespace Garage
         }
         public static void ListVehicles(List<Vehicle> vehicles)
         {
-<<<<<<< HEAD
             Console.Clear();
             Header();
-=======
->>>>>>> master
             Console.WriteLine("All Vehicles Parked in the Garage:");
             int i = 0;
             foreach (Vehicle vehicle in vehicles)
@@ -89,11 +86,8 @@ namespace Garage
                 i++;
                 Console.WriteLine($"{i}. {vehicle}");
             }
-<<<<<<< HEAD
             Console.Write("\n<< Press ENTER to return to Main Menu >>");
             Console.ReadLine();
-=======
->>>>>>> master
         }
 
         public static Vehicle AddVehicle()

@@ -24,16 +24,12 @@ namespace Garage
                 {
                     case 1:
                         //List Vehicles
-<<<<<<< HEAD
-                        UI.ListVehicles(garage.ListVehicles());
-=======
                         //UI.PrintHeaderText("All Vehicles Parked in the Garage:");
                         
                         if (garage.IsAnyVehicleParked())
                             UI.ListVehicles(garage.ListVehicles());
                         else
                             Console.WriteLine("\n\tNo Vehicles parked in the Garage.");
->>>>>>> master
                         break;
                     case 2:
                         //Add Vehicles
