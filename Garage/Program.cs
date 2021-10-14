@@ -9,14 +9,12 @@ namespace Garage
         static void Main(string[] args)
         {
             UI.Intro();
-
             Garage garage = new();
             if (FileHandler.CheckForSavedFiles() && UI.AskLoadGarage())
                 garage = FileHandler.LoadGarage();
             else
                 garage.Capacity = UI.AskGarageSize();
-            
-                
+
 
             while (true)
             {
@@ -25,9 +23,8 @@ namespace Garage
                 {
                     case 1:
                         //List Vehicles
-                        UI.PrintHeader("All Vehicles Parked in the Garage:");
-                        if (!UI.ListVehicles(garage.ListVehicles()))
-                            Console.WriteLine("\n\tNo Vehicles parked in the Garage.");
+                        //UI.PrintHeaderText("All Vehicles Parked in the Garage:");
+                        UI.ListVehicles(garage.ListVehicles());
                         break;
                     case 2:
                         //Add Vehicles

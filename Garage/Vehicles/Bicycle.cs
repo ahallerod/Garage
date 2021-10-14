@@ -9,7 +9,7 @@ namespace Garage
     {
         public string IsMountainBike { get; set; }
 
-        public string SuitableFor { get; set; }
+        public string SuitsKids { get; set; }
 
         public Bicycle()
         {
@@ -19,7 +19,7 @@ namespace Garage
         public override string ToString()
         {
             return base.ToString() + $"\n\tIs Mountainbike: {IsMountainBike}" +     //Yes,No
-                $"\n\tSuitable for: {SuitableFor}";
+                $"\n\tIs suitable for kids: {SuitsKids}";                        //Yes,No
             
         }
     }

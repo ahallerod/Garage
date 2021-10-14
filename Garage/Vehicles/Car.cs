@@ -10,8 +10,8 @@ namespace Garage
     [DataContract]
     public class Car : Vehicle
     {
-        [DataMember]
-        public string Brand { get; set; }
+        public enum BrandEnum { Volvo = 1, Volkswagen, SAAB, BMW, AUDI, Porsche, }
+        public BrandEnum Brand { get; set; }
 
         [DataMember]
         public string Has4Doors { get; set; }
