@@ -20,6 +20,7 @@ namespace Garage
 
 
         public bool IsAnyVehicleParked() { return ParkedVehicles.Any(); }
+        public int NumberParkedVehicles() { return ParkedVehicles.Count(); }
 
         public void AddVehicle(Vehicle vehicle)
         {
@@ -54,7 +55,6 @@ namespace Garage
                     return ParkedVehicles.Where(v => v.Fuel == (Vehicle.FuelEnum)Enum.Parse(typeof(Vehicle.FuelEnum), searchCriteria)).ToList();
                 case "Type":
                     return ListTypeOfVehicles((Vehicle.TypeEnum)Enum.Parse(typeof(Vehicle.TypeEnum), searchCriteria));
-
             }
 
             return null;
@@ -64,6 +64,7 @@ namespace Garage
         {
              return new SerializationGarage(this.Capacity, this.ParkedVehicles.ToList());
         }
+
 
         public void LoadGarage(SerializationGarage sg)
         {

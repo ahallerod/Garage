@@ -20,12 +20,11 @@ namespace Garage
 
             while (true)
             {
+                UI.Header(garage.NumberParkedVehicles(), garage.Capacity);
                 switch (UI.PrintMainMenu())
                 {
                     case 1:
-                        //List Vehicles
-                        //UI.PrintHeaderText("All Vehicles Parked in the Garage:");
-                        
+                        //List Vehicles      
                         if (garage.IsAnyVehicleParked())
                             UI.ListVehicles(garage.ListVehicles());
                         else

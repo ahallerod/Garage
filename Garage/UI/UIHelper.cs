@@ -16,6 +16,18 @@ namespace Garage
         {
             Console.Write("Please make your selection: ");
         }
+        public static int MakeAndValidateSelection(int min, int max)
+        {
+            while (true)
+            {
+                Console.Write("Please make your selection: ");
+                requestedInput = Console.ReadLine();
+                if ((int.TryParse(requestedInput, out int option)) && option >= min && option <= max)
+                    return option;
+
+                Console.WriteLine("Not a valid option. Please try again.");
+            }
+        }
         public static Car.BrandEnum AskBrandEnum()
         {
             int count = 0;
