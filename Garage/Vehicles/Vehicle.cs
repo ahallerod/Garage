@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel.DataAnnotations;            //https://stackoverflow.com/questions/1101872/how-to-set-space-on-enum/31988435
 
 namespace Garage
 {
@@ -12,7 +13,17 @@ namespace Garage
         public enum ColorEnum { Black = 1, Blue, Green, Red, White}             //Black{1}, Blue{2}, Green{3}, Red{4}, White{5}
         public ColorEnum Color { get; set; }
         public string LicenceNumber { get; set; }
-        public enum NumberWheelEnum { Two = 1, Four, Six, Eight }
+        public enum NumberWheelEnum
+        {
+            [Display(Name = "2 Wheels")]
+            Two = 1,
+            [Display(Name = "4 Wheels")]
+            Four,
+            [Display(Name = "6 Wheels")]
+            Six,
+            [Display(Name = "8 Wheels")]
+            Eight
+        }
         public NumberWheelEnum NumberWheel { get; set; }
         public enum FuelEnum { Gas = 1, Electric, Legs };
         public FuelEnum Fuel { get; set; }
@@ -28,7 +39,7 @@ namespace Garage
                 $"\n\tType: {Type}" +
                 $"\n\tColor: {Color}" +
                 $"\n\tLicence Number: {LicenceNumber}" +
-                $"\n\tNumber of wheels: {NumberWheel}" +
+                $"\n\tNumber of wheels: {NumberWheel} wheels" +
                 $"\n\tFuel: {Fuel}";
         }
     }
