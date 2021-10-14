@@ -18,7 +18,5 @@ namespace Garage
             Size = size;
             ParkedVehicles = vehicles;
         }
-            
-
     }
 }
