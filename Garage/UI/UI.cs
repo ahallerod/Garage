@@ -15,6 +15,7 @@ namespace Garage
                                                                                                  ";
             Console.WriteLine(header);
         }
+
         public static void Intro()
         {
             Header();
@@ -76,8 +77,11 @@ namespace Garage
         }
         public static void ListVehicles(List<Vehicle> vehicles)
         {
+<<<<<<< HEAD
             Console.Clear();
             Header();
+=======
+>>>>>>> master
             Console.WriteLine("All Vehicles Parked in the Garage:");
             int i = 0;
             foreach (Vehicle vehicle in vehicles)
@@ -85,9 +89,13 @@ namespace Garage
                 i++;
                 Console.WriteLine($"{i}. {vehicle}");
             }
+<<<<<<< HEAD
             Console.Write("\n<< Press ENTER to return to Main Menu >>");
             Console.ReadLine();
+=======
+>>>>>>> master
         }
+
         public static Vehicle AddVehicle()
         {
             Console.Clear();
@@ -203,7 +211,6 @@ namespace Garage
             int option;
             while(true)
             {
-                Console.Clear();
                 Console.WriteLine("" +
                     "-- Vehicle Search Menu --\n" +
                     "Possible search options:\n" +
@@ -237,7 +244,7 @@ namespace Garage
                 case 4:
                    //Search for Fuel
                     Console.WriteLine("Please type Fuel Type to search for:");
-                    return ("Fuel", Console.ReadLine());
+                    return ("Fuel", UIHelper.AskFuel().ToString());
                 default:
                     break;
             }
