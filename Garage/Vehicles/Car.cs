@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Garage
@@ -9,8 +10,8 @@ namespace Garage
     {
         public enum BrandEnum { Volvo = 1, Volkswagen, SAAB, BMW, AUDI, Porsche, }
         public BrandEnum Brand { get; set; }
-
         public string Has4Doors { get; set; }
+
         public Car()
         {
             Type = TypeEnum.Car;
