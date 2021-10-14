@@ -6,14 +6,10 @@ using System.Text;
 
 namespace Garage
 {
-
-    [DataContract]
     public class Car : Vehicle
     {
         public enum BrandEnum { Volvo = 1, Volkswagen, SAAB, BMW, AUDI, Porsche, }
         public BrandEnum Brand { get; set; }
-
-        [DataMember]
         public string Has4Doors { get; set; }
 
         public Car()
