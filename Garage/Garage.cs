@@ -14,8 +14,8 @@ namespace Garage
         {
             ParkedVehicles = new List<Vehicle>();
             Capacity = 0;
+            ParkedVehicles.Count();
         }
-        
         public void AddVehicle(Vehicle vehicle)
         {
             ParkedVehicles = ParkedVehicles.Append(vehicle);
@@ -52,6 +52,8 @@ namespace Garage
             {
                 case "Color":
                     return ParkedVehicles.Where(v => ((int)v.Color) == searchCriteria).ToList();
+                case "Fuel":
+                    return ParkedVehicles.Where(v => ((int)v.Fuel) == searchCriteria).ToList();
             }
             //Dummy code, remove later
                 return ParkedVehicles.Where(v => ((int)v.Color) == searchCriteria).ToList();
@@ -65,7 +67,9 @@ namespace Garage
                     return ParkedVehicles.Where(v => v.LicenceNumber.ToLower() == searchCriteria.ToLower()).ToList();
                 case "Color":
                         return ParkedVehicles.Where(v => v.Color == (Vehicle.ColorEnum)Enum.Parse(typeof(Vehicle.ColorEnum), searchCriteria)).ToList();
-                    
+                //case "Fuel":
+                  //  return ParkedVehicles.Where(v => v.Fuel == (Vehicle.FuelEnum)Enum.Parse(typeof(Vehicle.FuelEnum), searchCriteria)).ToList();
+
 
             }
             //Dummy code, remove later
