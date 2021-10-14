@@ -7,6 +7,7 @@ namespace Garage
 {
     public class Garage
     {
+        
         public IEnumerable<Vehicle> ParkedVehicles { get; set; }
         public int Capacity { get; set; }
 
@@ -16,6 +17,12 @@ namespace Garage
             Capacity = 0;
             ParkedVehicles.Count();
         }
+<<<<<<< HEAD
+=======
+
+        public bool IsAnyVehicleParked() { return ParkedVehicles.Any(); }
+        
+>>>>>>> master
         public void AddVehicle(Vehicle vehicle)
         {
             ParkedVehicles = ParkedVehicles.Append(vehicle);
@@ -36,31 +43,32 @@ namespace Garage
             return ParkedVehicles.Where(v => v.Type == type).ToList();
         }
 
-        /*public List<Vehicle> SearchVehicle((string searchType, string searchCriteria))
-        {
-            return ListTypeOfVehicles(searchCriteria);
-        }
-
-        public List<Vehicle> SearchVehicle(string searchType, Vehicle.ColorEnum searchCriteria)
-        {
-            return ParkedVehicles.Where(v => v.Color == searchCriteria).ToList();
-        }*/
-
-        public List<Vehicle> SearchVehicle(string searchType, int searchCriteria)
+        public List<Vehicle> SearchVehicle(string searchType, string searchCriteria)
         {
             switch (searchType)
             {
+                case "LicenceNumber":
+                    return ParkedVehicles.Where(v => v.LicenceNumber.ToLower() == searchCriteria.ToLower()).ToList();
                 case "Color":
+<<<<<<< HEAD
                     return ParkedVehicles.Where(v => ((int)v.Color) == searchCriteria).ToList();
                 case "Fuel":
                     return ParkedVehicles.Where(v => ((int)v.Fuel) == searchCriteria).ToList();
+=======
+                    return ParkedVehicles.Where(v => v.Color == (Vehicle.ColorEnum)Enum.Parse(typeof(Vehicle.ColorEnum), searchCriteria)).ToList();
+                case "Fuel":
+                    return ParkedVehicles.Where(v => v.Fuel == (Vehicle.FuelEnum)Enum.Parse(typeof(Vehicle.FuelEnum), searchCriteria)).ToList();
+                case "Type":
+                    return ListTypeOfVehicles((Vehicle.TypeEnum)Enum.Parse(typeof(Vehicle.TypeEnum), searchCriteria));
+>>>>>>> master
             }
-            //Dummy code, remove later
-                return ParkedVehicles.Where(v => ((int)v.Color) == searchCriteria).ToList();
+
+            return null;
         }
 
-        public List<Vehicle> SearchVehicle(string searchType, string searchCriteria)
+        public SerializationGarage ConvertGarageForSerialization()
         {
+<<<<<<< HEAD
             switch (searchType)
             {
                 case "LicenceNumber":
@@ -70,10 +78,15 @@ namespace Garage
                 //case "Fuel":
                   //  return ParkedVehicles.Where(v => v.Fuel == (Vehicle.FuelEnum)Enum.Parse(typeof(Vehicle.FuelEnum), searchCriteria)).ToList();
 
+=======
+             return new SerializationGarage(this.Capacity, this.ParkedVehicles.ToList());
+        }
+>>>>>>> master
 
-            }
-            //Dummy code, remove later
-            return ParkedVehicles.Where(v => v.LicenceNumber.ToLower() == searchCriteria.ToLower()).ToList();
+        public void LoadGarage(SerializationGarage sg)
+        {
+            this.Capacity = sg.Size;
+            this.ParkedVehicles = sg.ParkedVehicles;
         }
 
     }
