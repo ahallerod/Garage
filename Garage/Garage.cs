@@ -29,6 +29,7 @@ namespace Garage
             ParkedVehicles = ParkedVehicles.Where(v => v.LicenceNumber != vehicle.LicenceNumber);
             //Ta bort Vehicle via LicenceNumber från Garaget.
         }
+
         public List<Vehicle> ListVehicles()
         {
             return ParkedVehicles.ToList();

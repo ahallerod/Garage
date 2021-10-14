@@ -19,7 +19,6 @@ namespace Garage
 
             while (true)
             {
-
                 switch (UI.PrintMainMenu())
                 {
                     case 1:
