@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Garage
 {
@@ -24,7 +25,16 @@ namespace Garage
                 {
                     case 1:
                         //List Vehicles
+<<<<<<< HEAD
                         UI.ListVehicles(garage.ListVehicles());
+=======
+                        //UI.PrintHeaderText("All Vehicles Parked in the Garage:");
+                        
+                        if (garage.IsAnyVehicleParked())
+                            UI.ListVehicles(garage.ListVehicles());
+                        else
+                            Console.WriteLine("\n\tNo Vehicles parked in the Garage.");
+>>>>>>> master
                         break;
                     case 2:
                         //Add Vehicles
@@ -36,8 +46,12 @@ namespace Garage
                         break;
                     case 4:
                         //Search Vehicles
+                        List<Vehicle> searchResults = new();
                         (string searchType, string searchCondition) = UI.SearchMenu(garage.ListVehicles());
-                        UI.ListVehicles(garage.SearchVehicle(searchType, searchCondition));
+                        if ((searchResults = garage.SearchVehicle(searchType, searchCondition)) != null)
+                            UI.ListVehicles(searchResults);
+                        else
+                            Console.WriteLine("\nNo vehicles found searching for " + searchCondition + ".");
                         break;
                     case 5:
                         //Exit Program
@@ -46,6 +60,7 @@ namespace Garage
                     default:
                         break;
                 }
+                Console.ReadLine();
             }
         }
     }
