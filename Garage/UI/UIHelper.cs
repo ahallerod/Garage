@@ -8,17 +8,18 @@ namespace Garage
 {
     class UIHelper
     {
-        //variabel som kan återanvändas för förfrågan av user input
+        //re-usable frequently variables.
         static string requestedInput;
+        static string notValidOutput = "Not a valid option. Please try again.";
 
-        public static void TypeOption()
+        public static void PrintTypeSelection()
         {
-            Console.Write("\nPlease make your selection: ");
+            Console.Write("Please make your selection: ");
         }
         public static Car.BrandEnum AskBrandEnum()
         {
             int count = 0;
-            Console.WriteLine("What Brand is your Car?");
+            Console.WriteLine("\nWhat Brand is your Car?");
             foreach (Car.BrandEnum brand in Enum.GetValues(typeof(Car.BrandEnum)))
             {
                 count++;
@@ -27,16 +28,18 @@ namespace Garage
             }
             while (true)
             {
-                UIHelper.TypeOption();
+                UIHelper.PrintTypeSelection();
                 requestedInput = Console.ReadLine();
                 if ((int.TryParse(requestedInput, out int option)) && option > 0 && option <= 6)
                     return (Car.BrandEnum)option;
+
+                Console.WriteLine(notValidOutput);
             }
         }
         public static Truck.LoadedWithEnum AskLoadedWith()
         {
             int count = 0;
-            Console.WriteLine("What is your Truck loaded with?");
+            Console.WriteLine("\nWhat is your Truck loaded with?");
             foreach (Truck.LoadedWithEnum load in Enum.GetValues(typeof(Truck.LoadedWithEnum)))
             {
                 count++;
@@ -45,12 +48,12 @@ namespace Garage
             }
             while (true)
             {
-                UIHelper.TypeOption();
+                UIHelper.PrintTypeSelection();
                 requestedInput = Console.ReadLine();
                 if ((int.TryParse(requestedInput, out int option)) && option > 0 && option <= 4)
                     return (Truck.LoadedWithEnum)option;
 
-                Console.WriteLine("\nNot a valid option. Please try again.");
+                Console.WriteLine(notValidOutput);
             }
         }
         public static string AskYesNo()
@@ -59,7 +62,7 @@ namespace Garage
             {
                 Console.WriteLine("[Y] Yes" +
                 "\n[N] No");
-                UIHelper.TypeOption();
+                UIHelper.PrintTypeSelection();
                 requestedInput = Console.ReadLine().ToLower().Trim();
                 if (requestedInput == "y" || requestedInput == "yes")
                 {
@@ -71,13 +74,14 @@ namespace Garage
                     requestedInput = "No";
                     return requestedInput;
                 }
+                Console.WriteLine(notValidOutput);
             }
 
         }
         public static Vehicle.NumberWheelEnum AskWheel()
         {
             int count = 0;
-            Console.WriteLine("How many Wheels does your Vehicle have?");
+            Console.WriteLine("\nHow many Wheels does your Vehicle have?");
             foreach (Vehicle.NumberWheelEnum wheel in Enum.GetValues(typeof(Vehicle.NumberWheelEnum)))
             {
                 count++;
@@ -86,30 +90,30 @@ namespace Garage
             }
             while (true)
             {
-                UIHelper.TypeOption();
+                UIHelper.PrintTypeSelection();
                 requestedInput = Console.ReadLine();
                 if ((int.TryParse(requestedInput, out int option)) && option > 0 && option <= 4)
                     return (Vehicle.NumberWheelEnum)option;
 
-                Console.WriteLine("\nNot a valid option. Please try again.");
+                Console.WriteLine(notValidOutput);
             }
         }
         public static string AskLicenceNumber()
         {
             while (true)
             {
-                Console.Write("Type your LicenceNumber[ABC123]: ");
+                Console.Write("\nType your LicenceNumber [ABC123]: ");
                 const int MaxLength = 6;
                 requestedInput = Console.ReadLine().ToUpper().Trim();
                 if (requestedInput.Length == MaxLength) return requestedInput;
 
-                Console.WriteLine("\nNot a valid option. Please try again.");
+                Console.WriteLine(notValidOutput);
             }
         }
         public static Vehicle.ColorEnum AskColor()
         {
             int count = 0;
-            Console.WriteLine("What is the Color of your Vehicle?");
+            Console.WriteLine("\nWhat is the Color of your Vehicle?");
             foreach (Vehicle.ColorEnum color in Enum.GetValues(typeof(Vehicle.ColorEnum)))
             {
                 count++;
@@ -118,19 +122,21 @@ namespace Garage
             }
             while (true)
             {
-                UIHelper.TypeOption();
+                UIHelper.PrintTypeSelection();
                 int.TryParse(Console.ReadLine(), out int requestedInput);
                 if (requestedInput == 1) return Vehicle.ColorEnum.Black;
                 else if (requestedInput == 2) return Vehicle.ColorEnum.Blue;
                 else if (requestedInput == 3) return Vehicle.ColorEnum.Green;
                 else if (requestedInput == 4) return Vehicle.ColorEnum.Red;
                 else if (requestedInput == 5) return Vehicle.ColorEnum.White;
+
+                Console.WriteLine(notValidOutput);
             }
         }
         public static Vehicle.FuelEnum AskFuel()
         {
             int count = 0;
-            Console.WriteLine("What type of Fuel do you use?");
+            Console.WriteLine("\nWhat type of Fuel do you use?");
             foreach (Vehicle.FuelEnum fuel in Enum.GetValues(typeof(Vehicle.FuelEnum)))
             {
                 count++;
@@ -139,36 +145,54 @@ namespace Garage
             }
             while (true)
             {
-                UIHelper.TypeOption();
+                UIHelper.PrintTypeSelection();
                 int.TryParse(Console.ReadLine(), out int requestedInput);
                 if (requestedInput == 1) return Vehicle.FuelEnum.Gas;
                 else if (requestedInput == 2) return Vehicle.FuelEnum.Electric;
                 else if (requestedInput == 3) return Vehicle.FuelEnum.Legs;
+
+                Console.WriteLine(notValidOutput);
             }
         }
         public static decimal AskTruckLength()
         {
             while (true)
             {
-                Console.WriteLine("What is the Length of your Truck? [1 - 11.11]");
-                const int MaxLength = 5;
-                const int MinLenght = 1;
+                Console.WriteLine("\nWhat is the Length of your Truck in metre? [1 - 99.9]");
+                const int MaxLength = 4;
+                const int MinLength = 1;
                 requestedInput = Console.ReadLine().Trim();
-                decimal test = 0;
-                if (requestedInput.Length <= MaxLength && requestedInput.Length >= MinLenght)
+                decimal input = 0;
+                if (requestedInput.Length <= MaxLength && requestedInput.Length >= MinLength)
                 {
-                    if (decimal.TryParse(requestedInput, out test))
+                    if (decimal.TryParse(requestedInput, out input))
                     {
                         return decimal.Parse(requestedInput);
                     }
                 }
                 else
                 {
-                    Console.WriteLine("\nNot a valid option. Please try again.");
+                    Console.WriteLine(notValidOutput);
                 }
-
-
             }
         }
+        public static int AskYearModel()
+        {
+            while (true)
+            {
+                Console.WriteLine("\nModel Year? [1990 - 2022]");
+                const int MaxLength = 4;
+                const int MinYear = 1990;
+                requestedInput = Console.ReadLine().ToLower().Trim();
+                if(requestedInput.Length == MaxLength)                  //Check if input is exactly 4 characters
+                {
+                    if (int.Parse(requestedInput) >= MinYear)           //Then check if it's bigger or equal to 1990
+                        return int.Parse(requestedInput);               //If true, return
+                }
+                Console.WriteLine(notValidOutput);
+            }
+            
+        }
+        
     }
 }

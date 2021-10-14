@@ -15,10 +15,14 @@ namespace Garage
         {
             ParkedVehicles = new List<Vehicle>();
             Capacity = 0;
+            ParkedVehicles.Count();
         }
+<<<<<<< HEAD
+=======
 
         public bool IsAnyVehicleParked() { return ParkedVehicles.Any(); }
         
+>>>>>>> master
         public void AddVehicle(Vehicle vehicle)
         {
             ParkedVehicles = ParkedVehicles.Append(vehicle);
@@ -47,11 +51,17 @@ namespace Garage
                 case "LicenceNumber":
                     return ParkedVehicles.Where(v => v.LicenceNumber.ToLower() == searchCriteria.ToLower()).ToList();
                 case "Color":
+<<<<<<< HEAD
+                    return ParkedVehicles.Where(v => ((int)v.Color) == searchCriteria).ToList();
+                case "Fuel":
+                    return ParkedVehicles.Where(v => ((int)v.Fuel) == searchCriteria).ToList();
+=======
                     return ParkedVehicles.Where(v => v.Color == (Vehicle.ColorEnum)Enum.Parse(typeof(Vehicle.ColorEnum), searchCriteria)).ToList();
                 case "Fuel":
                     return ParkedVehicles.Where(v => v.Fuel == (Vehicle.FuelEnum)Enum.Parse(typeof(Vehicle.FuelEnum), searchCriteria)).ToList();
                 case "Type":
                     return ListTypeOfVehicles((Vehicle.TypeEnum)Enum.Parse(typeof(Vehicle.TypeEnum), searchCriteria));
+>>>>>>> master
             }
 
             return null;
@@ -59,8 +69,20 @@ namespace Garage
 
         public SerializationGarage ConvertGarageForSerialization()
         {
+<<<<<<< HEAD
+            switch (searchType)
+            {
+                case "LicenceNumber":
+                    return ParkedVehicles.Where(v => v.LicenceNumber.ToLower() == searchCriteria.ToLower()).ToList();
+                case "Color":
+                        return ParkedVehicles.Where(v => v.Color == (Vehicle.ColorEnum)Enum.Parse(typeof(Vehicle.ColorEnum), searchCriteria)).ToList();
+                //case "Fuel":
+                  //  return ParkedVehicles.Where(v => v.Fuel == (Vehicle.FuelEnum)Enum.Parse(typeof(Vehicle.FuelEnum), searchCriteria)).ToList();
+
+=======
              return new SerializationGarage(this.Capacity, this.ParkedVehicles.ToList());
         }
+>>>>>>> master
 
         public void LoadGarage(SerializationGarage sg)
         {

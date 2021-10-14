@@ -5,7 +5,6 @@ namespace Garage
 {
     public static class UI
     {
-
         public static void Header()
         {
             string header = @"
@@ -19,8 +18,8 @@ namespace Garage
 
         public static void Intro()
         {
-            UI.Header();
-            Console.WriteLine("\n\tWelcome to Garage Simulator 2021!\n");
+            Header();
+            Console.WriteLine("\n\tWelcome to Garage Simulator 2021!");
         }
         public static bool AskLoadGarage()
         {
@@ -28,13 +27,13 @@ namespace Garage
             while (true)
             {
                 Console.WriteLine(
-                    "Do you want to\n" +
+                    "\nDo you want to\n" +
                     "[1] Create a brand new Garage (This will overwrite any previously saved Garage)\n" +
                     "[2] Load the last Garage");
-                UIHelper.TypeOption();
+                UIHelper.PrintTypeSelection();
                 string input = Console.ReadLine();
                 if (int.TryParse(input, out option) && option > 0 && option <= 2) break; //Break if valid selection
-                Console.WriteLine("Please try again, not a valid selection.");
+                Console.WriteLine("Not a valid option.Please try again.");
             }
             if (option == 1) return false;
             return true;
@@ -48,8 +47,9 @@ namespace Garage
             while (true)
             {
                 input = Console.ReadLine();
-                if (int.TryParse(input, out option) && option >= 1) return option;
-                Console.WriteLine("Please try again, minimum 10.");
+                if (int.TryParse(input, out option) && option >= 1)
+                    return option;                                      //Change back to minimum 10 when complete
+                Console.WriteLine("Not a valid option.Please try again. Minimum 10.");
             }
         }
         //----------------------------------------
@@ -58,7 +58,7 @@ namespace Garage
             while (true)
             {
                 Console.Clear();
-                UI.Header();
+                Header();
                 Console.WriteLine("\n -- Main menu --");
                 Console.WriteLine("1. List all vehicles parked in the garage.");
                 Console.WriteLine("2. Add vehicle to garage");
@@ -66,18 +66,22 @@ namespace Garage
                 Console.WriteLine("4. Search for vehicles.");
                 Console.WriteLine("5. Exit Program.");
 
-                UIHelper.TypeOption();
+                UIHelper.PrintTypeSelection();
                 //int option;
 
                 string input = Console.ReadLine();
                 if ((int.TryParse(input, out int option)) && option > 0 && option <= 5)
                     return option;
-
-                Console.WriteLine("\nNot a valid option. Please try again.");
+                Console.WriteLine("Not a valid option. Please try again.");
             }
         }
         public static void ListVehicles(List<Vehicle> vehicles)
         {
+<<<<<<< HEAD
+            Console.Clear();
+            Header();
+=======
+>>>>>>> master
             Console.WriteLine("All Vehicles Parked in the Garage:");
             int i = 0;
             foreach (Vehicle vehicle in vehicles)
@@ -85,21 +89,25 @@ namespace Garage
                 i++;
                 Console.WriteLine($"{i}. {vehicle}");
             }
+<<<<<<< HEAD
+            Console.Write("\n<< Press ENTER to return to Main Menu >>");
+            Console.ReadLine();
+=======
+>>>>>>> master
         }
 
         public static Vehicle AddVehicle()
         {
             Console.Clear();
-            UI.Header();
+            Header();
             Console.WriteLine("Choose a Vehicle-Type to the park in the garage.");
             Console.WriteLine("[1] Bicycle" +
                 "\n[2] Motorcycle" +
                 "\n[3] Car" +
                 "\n[4] Bus" +
                 "\n[5] Truck");
-            UIHelper.TypeOption();
+            UIHelper.PrintTypeSelection();
             int.TryParse(Console.ReadLine(), out int userInput);
-            Vehicle returnVehicle = new();
             switch (userInput)
             {
                 case (int)Vehicle.TypeEnum.Bicycle:
@@ -107,12 +115,12 @@ namespace Garage
                     {
                         Color = UIHelper.AskColor(),
                         Fuel = UIHelper.AskFuel(),
-                        //LicenceNumber = UI.LicenceNumber(),               //Bicycle doesnt have licence number
+                        //LicenceNumber = UI.LicenceNumber(),               //Bicycle doesn't have licence number
                         NumberWheel = UIHelper.AskWheel()
                     };
-                    Console.WriteLine("Is it a mountain bike?");
+                    Console.WriteLine("\nIs it a mountain bike?");
                     addBicycle.IsMountainBike = UIHelper.AskYesNo();
-                    Console.WriteLine("Is suitable for kids?");
+                    Console.WriteLine("\nIs suitable for kids?");
                     addBicycle.SuitsKids = UIHelper.AskYesNo();
                     return addBicycle;
 
@@ -123,14 +131,12 @@ namespace Garage
                         Color = UIHelper.AskColor(),
                         Fuel = UIHelper.AskFuel(),
                         LicenceNumber = UIHelper.AskLicenceNumber(),
-                        NumberWheel = UIHelper.AskWheel()
+                        NumberWheel = UIHelper.AskWheel(),
+                        YearModel = UIHelper.AskYearModel()
                     };
 
-                    Console.WriteLine("Is it Made in Sweden?");
+                    Console.WriteLine("\nIs it Made in Sweden?");
                     addMotorcycle.MadeInSweden = UIHelper.AskYesNo();
-                    Console.WriteLine("Model year?");
-                    addMotorcycle.YearModel = int.Parse(Console.ReadLine());            //ÅTGÄRD
-                        
                     return addMotorcycle;
 
                 case (int)Vehicle.TypeEnum.Car:
@@ -144,7 +150,7 @@ namespace Garage
                         Brand = UIHelper.AskBrandEnum()
                     };
 
-                    Console.WriteLine("Does it have more than 4 doors?");
+                    Console.WriteLine("\nDoes it have more than 4 doors?");
                     addCar.Has4Doors = UIHelper.AskYesNo();
                     return addCar;
 
@@ -158,9 +164,9 @@ namespace Garage
                         NumberWheel = UIHelper.AskWheel()
                     };
 
-                    Console.WriteLine("Is Capacity more than 30?");
+                    Console.WriteLine("\nIs Capacity more than 30?");
                     addBus.PassengerCapacity = UIHelper.AskYesNo();
-                    Console.WriteLine("Is it a school bus?");
+                    Console.WriteLine("\nIs it a school bus?");
                     addBus.SchoolBus = UIHelper.AskYesNo();
                     return addBus;
 
@@ -184,17 +190,20 @@ namespace Garage
         public static Vehicle RemoveVehicle(List<Vehicle> vehicles)
         {
             Console.Clear();
-            UI.Header();
-            Console.WriteLine("Remove a vehicle from the garage. Choose a number to remove:");
+            Header();
+            Console.WriteLine("Remove a vehicle from the garage.");
             int index = 0;
             foreach (Vehicle vehicle in vehicles)
             {
                 index++;
                 Console.WriteLine($"{index}. {vehicle}");
             }
-            Console.WriteLine("Remove vehicles from the garage.");
+            Console.Write("Enter a number of which Vehicle you would like to remove: ");
             int.TryParse(Console.ReadLine(), out int userInput);
-            return vehicles[userInput - 1];
+            //if (!userInput >= 1)
+            {
+                return vehicles[userInput - 1];                             //userinput[1] minus 1 = userinput [0] to access index 0
+            }
 
         }
         public static (string, string) SearchMenu(List<Vehicle> vehicles)
@@ -211,7 +220,7 @@ namespace Garage
                     "[4] Fuel Type\n"
                     );
 
-                UIHelper.TypeOption();
+                UIHelper.PrintTypeSelection();
                 string input = Console.ReadLine();
                 if (int.TryParse(input, out option) && option > 0 && option <= 4) break; //Break if valid selection
                 Console.WriteLine("Please try again, only positive numbers accepted.");
@@ -258,6 +267,15 @@ namespace Garage
                 Console.WriteLine(e);
             }
         }
+        //public static void ParkedVehicleCounter(List<Vehicle> vehicles)
+        //{
+        //    int i = 0;
+        //    foreach (Vehicle vehicle in vehicles)
+        //    {
+        //        i++;
+        //        Console.WriteLine($"{i}");
+        //    }
+        //}
     }
 }
      
