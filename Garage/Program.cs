@@ -20,6 +20,7 @@ namespace Garage
 
             while (true)
             {
+                UI.Header(garage.NumberParkedVehicles(), garage.Capacity);
                 switch (UI.PrintMainMenu())
                 {
                     case 1:

@@ -19,6 +19,7 @@ namespace Garage
         }
 
         public bool IsAnyVehicleParked() { return ParkedVehicles.Any(); }
+        public int NumberParkedVehicles() { return ParkedVehicles.Count(); }
 
         public void AddVehicle(Vehicle vehicle)
         {

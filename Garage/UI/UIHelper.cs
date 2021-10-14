@@ -16,16 +16,16 @@ namespace Garage
         {
             Console.Write("Please make your selection: ");
         }
-        public static int MakeAndValidateSelection(int low, int high)
+        public static int MakeAndValidateSelection(int min, int max)
         {
             while (true)
             {
-                UIHelper.PrintTypeSelection();
+                Console.Write("Please make your selection: ");
                 requestedInput = Console.ReadLine();
-                if ((int.TryParse(requestedInput, out int option)) && option > 0 && option <= 6)
+                if ((int.TryParse(requestedInput, out int option)) && option >= min && option <= max)
                     return option;
 
-                Console.WriteLine(notValidOutput);
+                Console.WriteLine("Not a valid option. Please try again.");
             }
         }
         public static Car.BrandEnum AskBrandEnum()

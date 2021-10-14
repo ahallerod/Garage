@@ -13,8 +13,15 @@ namespace Garage
  (( ___ ||=|| ||_// ||=|| (( ___ ||==      \\  || || \/ || || || ||    ||=||   ||   ((   )) ||_//
   \\_|| || || || \\ || ||  \\_|| ||___    \_)) || ||    || \\_// ||__| || ||   ||    \\_//  || \\
                                                                                                  ";
+            Console.Clear();
             Console.WriteLine(header);
         }
+        public static void Header(int parked, int max)
+        {
+            Header();
+            Console.WriteLine($"\t\t\t {parked} Vehicles parked out of {max} parking spaces.");
+        }
+
 
         public static void Intro()
         {
@@ -57,14 +64,12 @@ namespace Garage
         {
             while (true)
             {
-                Console.Clear();
-                Header();
                 Console.WriteLine("\n -- Main menu --");
                 Console.WriteLine("1. List all vehicles parked in the garage.");
                 Console.WriteLine("2. Add vehicle to garage");
                 Console.WriteLine("3. Remove vehicle from garage");
                 Console.WriteLine("4. Search for vehicles.");
-                Console.WriteLine("5. Exit Program.");
+                Console.WriteLine("5. Save Garage and Exit Program.");
 
                 UIHelper.PrintTypeSelection();
                 //int option;
@@ -191,12 +196,7 @@ namespace Garage
                 Console.WriteLine($"{index}. {vehicle}");
             }
             Console.Write("Enter a number of which Vehicle you would like to remove: ");
-            int.TryParse(Console.ReadLine(), out int userInput);
-            //if (!userInput >= 1)
-            {
-                return vehicles[userInput - 1];                             //userinput[1] minus 1 = userinput [0] to access index 0
-            }
-
+            return vehicles[UIHelper.MakeAndValidateSelection(1,vehicles.Count) - 1];
         }
         public static (string, string) SearchMenu(List<Vehicle> vehicles)
         {
