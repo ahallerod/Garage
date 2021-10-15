@@ -10,8 +10,22 @@ namespace Garage
     {
         //re-usable frequently variables.
         static string requestedInput;
-        static string notValidOutput = "Not a valid option. Please try again.";
-
+        public static void PrintSuccessfullAddedVehicle()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Vehicle successfully parked in the Garage.");
+            Console.ResetColor();
+        }
+        public static void PrintBackOption()
+        {
+            Console.Write("\n<< Press ENTER to return to Main Menu >>");
+        }
+        public static void PrintNotValidOption()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Not a valid option. Please try again.");
+            Console.ResetColor();
+        }
         public static void PrintTypeSelection()
         {
             Console.Write("Please make your selection: ");
@@ -20,12 +34,12 @@ namespace Garage
         {
             while (true)
             {
-                Console.Write("Please make your selection: ");
+                PrintTypeSelection();
                 requestedInput = Console.ReadLine();
                 if ((int.TryParse(requestedInput, out int option)) && option >= min && option <= max)
                     return option;
 
-                Console.WriteLine("Not a valid option. Please try again.");
+                PrintNotValidOption();
             }
         }
         public static Car.BrandEnum AskBrandEnum()
@@ -40,12 +54,12 @@ namespace Garage
             }
             while (true)
             {
-                UIHelper.PrintTypeSelection();
+                PrintTypeSelection();
                 requestedInput = Console.ReadLine();
                 if ((int.TryParse(requestedInput, out int option)) && option > 0 && option <= 6)
                     return (Car.BrandEnum)option;
 
-                Console.WriteLine(notValidOutput);
+                PrintNotValidOption();
             }
         }
         public static Truck.LoadedWithEnum AskLoadedWith()
@@ -60,12 +74,12 @@ namespace Garage
             }
             while (true)
             {
-                UIHelper.PrintTypeSelection();
+                PrintTypeSelection();
                 requestedInput = Console.ReadLine();
                 if ((int.TryParse(requestedInput, out int option)) && option > 0 && option <= 4)
                     return (Truck.LoadedWithEnum)option;
 
-                Console.WriteLine(notValidOutput);
+                PrintNotValidOption();
             }
         }
         public static string AskYesNo()
@@ -74,7 +88,7 @@ namespace Garage
             {
                 Console.WriteLine("[Y] Yes" +
                 "\n[N] No");
-                UIHelper.PrintTypeSelection();
+                PrintTypeSelection();
                 requestedInput = Console.ReadLine().ToLower().Trim();
                 if (requestedInput == "y" || requestedInput == "yes")
                 {
@@ -86,7 +100,7 @@ namespace Garage
                     requestedInput = "No";
                     return requestedInput;
                 }
-                Console.WriteLine(notValidOutput);
+                PrintNotValidOption();
             }
 
         }
@@ -102,12 +116,12 @@ namespace Garage
             }
             while (true)
             {
-                UIHelper.PrintTypeSelection();
+                PrintTypeSelection();
                 requestedInput = Console.ReadLine();
                 if ((int.TryParse(requestedInput, out int option)) && option > 0 && option <= 4)
                     return (Vehicle.NumberWheelEnum)option;
 
-                Console.WriteLine(notValidOutput);
+                PrintNotValidOption();
             }
         }
         public static string AskLicenceNumber()
@@ -119,7 +133,7 @@ namespace Garage
                 requestedInput = Console.ReadLine().ToUpper().Trim();
                 if (requestedInput.Length == MaxLength) return requestedInput;
 
-                Console.WriteLine(notValidOutput);
+                PrintNotValidOption();
             }
         }
         public static Vehicle.ColorEnum AskColor()
@@ -134,15 +148,38 @@ namespace Garage
             }
             while (true)
             {
-                UIHelper.PrintTypeSelection();
-                int.TryParse(Console.ReadLine(), out int requestedInput);
-                if (requestedInput == 1) return Vehicle.ColorEnum.Black;
-                else if (requestedInput == 2) return Vehicle.ColorEnum.Blue;
-                else if (requestedInput == 3) return Vehicle.ColorEnum.Green;
-                else if (requestedInput == 4) return Vehicle.ColorEnum.Red;
-                else if (requestedInput == 5) return Vehicle.ColorEnum.White;
+                PrintTypeSelection();
+                requestedInput = Console.ReadLine();
+                if ((int.TryParse(requestedInput, out int option)) && option > 0 && option <= 5)
+                    return (Vehicle.ColorEnum)option;
+                //int.TryParse(Console.ReadLine(), out int requestedInput);
+                //if (requestedInput == 1) return Vehicle.ColorEnum.Black;
+                //else if (requestedInput == 2) return Vehicle.ColorEnum.Blue;
+                //else if (requestedInput == 3) return Vehicle.ColorEnum.Green;
+                //else if (requestedInput == 4) return Vehicle.ColorEnum.Red;
+                //else if (requestedInput == 5) return Vehicle.ColorEnum.White;
 
-                Console.WriteLine(notValidOutput);
+                PrintNotValidOption();
+            }
+        }
+        public static Vehicle.TypeEnum AskType()
+        {
+            int count = -1;
+            Console.WriteLine("\nWhat is the Type of your Vehicle?");
+            foreach (Vehicle.TypeEnum type in Enum.GetValues(typeof(Vehicle.TypeEnum)))
+            {
+                count++;
+                Console.Write("[" + count + "] ");
+                Console.WriteLine(type);
+            }
+            while (true)
+            {
+                PrintTypeSelection();
+                requestedInput = Console.ReadLine();
+                if ((int.TryParse(requestedInput, out int option)) && option > 0 && option <= 5)
+                    return (Vehicle.TypeEnum)option;
+
+                PrintNotValidOption();
             }
         }
         public static Vehicle.FuelEnum AskFuel()
@@ -157,13 +194,13 @@ namespace Garage
             }
             while (true)
             {
-                UIHelper.PrintTypeSelection();
+                PrintTypeSelection();
                 int.TryParse(Console.ReadLine(), out int requestedInput);
                 if (requestedInput == 1) return Vehicle.FuelEnum.Gas;
                 else if (requestedInput == 2) return Vehicle.FuelEnum.Electric;
                 else if (requestedInput == 3) return Vehicle.FuelEnum.Legs;
 
-                Console.WriteLine(notValidOutput);
+                PrintNotValidOption();
             }
         }
         public static decimal AskTruckLength()
@@ -184,7 +221,7 @@ namespace Garage
                 }
                 else
                 {
-                    Console.WriteLine(notValidOutput);
+                    PrintNotValidOption();
                 }
             }
         }
@@ -201,9 +238,9 @@ namespace Garage
                     if (int.Parse(requestedInput) >= MinYear)           //Then check if it's bigger or equal to 1990
                         return int.Parse(requestedInput);               //If true, return
                 }
-                Console.WriteLine(notValidOutput);
+                PrintNotValidOption();
             }
-            
+ 
         }
         
     }
