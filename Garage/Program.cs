@@ -5,8 +5,6 @@ namespace Garage
 {
     class Program
     {
-
-
         static void Main(string[] args)
         {
             UI.Intro();
@@ -37,12 +35,12 @@ namespace Garage
                         break;
                     case 3:
                         //Remove Vehicles
-                        if (garage.IsAnyVehicleParked())
-                            garage.RemoveVehicle(UI.RemoveVehicle(garage.ListVehicles()));
-                        else
+                        if (!garage.IsAnyVehicleParked())
+                        {
                             Console.WriteLine("\n\tNo Vehicles parked in the Garage.");
-                            UIHelper.PrintBackOption();
-                        //garage.RemoveVehicle(UI.RemoveVehicle(garage.ListVehicles()));            //If Garage is empty and enter Remove section, doesn't show anything and empty.
+                        }
+                        else garage.RemoveVehicle(UI.RemoveVehicle(garage.ListVehicles()));
+                        UIHelper.PrintBackOption();
                         break;
                     case 4:
                         //Search Vehicles
@@ -50,8 +48,9 @@ namespace Garage
                         (string searchType, string searchCondition) = UI.SearchMenu(garage.ListVehicles());
                         if ((searchResults = garage.SearchVehicle(searchType, searchCondition)) != null)
                             UI.ListVehicles(searchResults);
-                        else
-                            Console.WriteLine("\nNo vehicles found searching for " + searchCondition + ".");
+
+                        else Console.WriteLine("\nNo vehicles found searching for " + searchCondition + ".");
+                        UIHelper.PrintBackOption();
                         break;
                     case 5:
                         //Exit Program
