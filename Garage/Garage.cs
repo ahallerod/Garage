@@ -7,7 +7,7 @@ namespace Garage
 {
     public class Garage
     {
-        
+
         public IEnumerable<Vehicle> ParkedVehicles { get; set; }
         public int Capacity { get; set; }
 
@@ -17,7 +17,6 @@ namespace Garage
             Capacity = 0;
             ParkedVehicles.Count();
         }
-
 
         public bool IsAnyVehicleParked() { return ParkedVehicles.Any(); }
         public int NumberParkedVehicles() { return ParkedVehicles.Count(); }
@@ -30,7 +29,6 @@ namespace Garage
         public void RemoveVehicle(Vehicle vehicle)
         {
             ParkedVehicles = ParkedVehicles.Where(v => v.LicenceNumber != vehicle.LicenceNumber);
-            //Ta bort Vehicle via LicenceNumber från Garaget.
         }
 
         public List<Vehicle> ListVehicles()
@@ -45,26 +43,31 @@ namespace Garage
 
         public List<Vehicle> SearchVehicle(string searchType, string searchCriteria)
         {
+            List<Vehicle> searchResults = new();
             switch (searchType)
             {
                 case "Type":
-                    return ListTypeOfVehicles((Vehicle.TypeEnum)Enum.Parse(typeof(Vehicle.TypeEnum), searchCriteria)).ToList();
-                //return ListTypeOfVehicles((Vehicle.TypeEnum)Enum.Parse(typeof(Vehicle.TypeEnum), searchCriteria));
+                    searchResults = ListTypeOfVehicles((Vehicle.TypeEnum)Enum.Parse(typeof(Vehicle.TypeEnum), searchCriteria)).ToList();
+                    break;
                 case "Color":
-                    return ParkedVehicles.Where(v => v.Color == (Vehicle.ColorEnum)Enum.Parse(typeof(Vehicle.ColorEnum), searchCriteria)).ToList();
+                    searchResults = ParkedVehicles.Where(v => v.Color == (Vehicle.ColorEnum)Enum.Parse(typeof(Vehicle.ColorEnum), searchCriteria)).ToList();
+                    break;
                 case "LicenceNumber":
-                    return ParkedVehicles.Where(v => v.LicenceNumber.ToLower() == searchCriteria.ToLower()).ToList();
+                    searchResults = ParkedVehicles.Where(v => v.LicenceNumber.ToLower() == searchCriteria.ToLower()).ToList();
+                    break;
                 case "Fuel":
-                    return ParkedVehicles.Where(v => v.Fuel == (Vehicle.FuelEnum)Enum.Parse(typeof(Vehicle.FuelEnum), searchCriteria)).ToList();
-              
+                    searchResults = ParkedVehicles.Where(v => v.Fuel == (Vehicle.FuelEnum)Enum.Parse(typeof(Vehicle.FuelEnum), searchCriteria)).ToList();
+                    break;
+
             }
 
+            if (searchResults.Any()) return searchResults;
             return null;
         }
 
         public SerializationGarage ConvertGarageForSerialization()
         {
-             return new SerializationGarage(this.Capacity, this.ParkedVehicles.ToList());
+            return new SerializationGarage(this.Capacity, this.ParkedVehicles.ToList());
         }
 
 
