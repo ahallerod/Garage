@@ -29,6 +29,7 @@ namespace Garage
                             UI.ListVehicles(garage.ListVehicles());
                         else
                             Console.WriteLine("\n\tNo Vehicles parked in the Garage.");
+                            UIHelper.PrintBackOption();
                         break;
                     case 2:
                         //Add Vehicles
@@ -36,7 +37,12 @@ namespace Garage
                         break;
                     case 3:
                         //Remove Vehicles
-                        garage.RemoveVehicle(UI.RemoveVehicle(garage.ListVehicles()));
+                        if (garage.IsAnyVehicleParked())
+                            garage.RemoveVehicle(UI.RemoveVehicle(garage.ListVehicles()));
+                        else
+                            Console.WriteLine("\n\tNo Vehicles parked in the Garage.");
+                            UIHelper.PrintBackOption();
+                        //garage.RemoveVehicle(UI.RemoveVehicle(garage.ListVehicles()));            //If Garage is empty and enter Remove section, doesn't show anything and empty.
                         break;
                     case 4:
                         //Search Vehicles
@@ -50,6 +56,9 @@ namespace Garage
                     case 5:
                         //Exit Program
                         FileHandler.SaveGarage(garage);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Garage successfully saved.");
+                        Console.ResetColor();
                         return;
                     default:
                         break;
