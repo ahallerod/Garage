@@ -31,7 +31,13 @@ namespace Garage
                         break;
                     case 2:
                         //Add Vehicles
-                        garage.AddVehicle(UI.AddVehicle());
+                        if (garage.NumberParkedVehicles() < garage.Capacity)
+                            garage.AddVehicle(UI.AddVehicle());
+                        else
+                        {
+                            Console.WriteLine("There are no parking spaces left. It's full.");
+                            UIHelper.PrintBackOption();
+                        }
                         break;
                     case 3:
                         //Remove Vehicles
@@ -64,7 +70,7 @@ namespace Garage
                     default:
                         break;
                 }
-                Console.ReadLine();
+                //Console.ReadLine();
             }
         }
     }
