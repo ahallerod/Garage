@@ -35,7 +35,9 @@ namespace Garage
                             garage.AddVehicle(UI.AddVehicle());
                         else
                         {
-                            Console.WriteLine("There are no parking spaces left. It's full.");
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("\nThere are no parking spaces left. It's full.");
+                            Console.ResetColor();
                             UIHelper.PrintBackOption();
                         }
                         break;
