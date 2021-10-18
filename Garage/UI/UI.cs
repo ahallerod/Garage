@@ -5,7 +5,7 @@ namespace Garage
 {
     public static class UI
     {
-        public static void PrintLogo()
+        public static void PrintLogo()                                          //FL
         {
             string header = @"
    ___   ___  ____   ___    ___   ____     __  __ ___  ___ __ __ __     ___  ______   ___   ____ 
@@ -15,20 +15,20 @@ namespace Garage
                                                                                                  ";
             Console.Clear();
             Console.WriteLine(header);
-        }
-        public static void Header(int parked, int max)
+        } 
+        public static void Header(int parked, int max)                          //AH
         {
             PrintLogo();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"\t\t\t {parked} Vehicles parked out of {max} parking spaces.");
             Console.ResetColor();
         }
-        public static void Intro()
+        public static void Intro()                                              //AH
         {
             PrintLogo();
             Console.WriteLine("\n\tWelcome to Garage Simulator 2021!");
         }
-        public static bool AskLoadGarage()
+        public static bool AskLoadGarage()                                      //AH
         {
             int option;
             while (true)
@@ -45,7 +45,7 @@ namespace Garage
             if (option == 1) return false;
             return true;
         }
-        public static int AskGarageSize()
+        public static int AskGarageSize()                                       //AH
         {
             Console.WriteLine("\nHow many parking spaces will this garage have?");
             Console.Write("Please insert a number. Minimum 10: ");
@@ -62,7 +62,7 @@ namespace Garage
                 UIHelper.PrintTypeSelection();
             }
         }
-        public static int PrintMainMenu()
+        public static int PrintMainMenu()                                       //AH
         {
             while (true)
             {
@@ -76,7 +76,7 @@ namespace Garage
                 return UIHelper.MakeAndValidateSelection(1, 5);
             }
         }
-        public static void ListVehicles(List<Vehicle> vehicles)
+        public static void ListVehicles(List<Vehicle> vehicles)                 //AH
         {
             Console.Clear();
             PrintLogo();
@@ -88,7 +88,7 @@ namespace Garage
                 Console.WriteLine($"{i}. {vehicle}");
             }
         }
-        public static Vehicle AddVehicle()
+        public static Vehicle AddVehicle()                                      //FL
         {
             Console.Clear();
             PrintLogo();
@@ -119,7 +119,6 @@ namespace Garage
                     return addBicycle;
 
                 case (int)Vehicle.TypeEnum.Motorcycle:
-
                     Motorcycle addMotorcycle = new()
                     {
                         Color = UIHelper.AskColor(),
@@ -128,7 +127,6 @@ namespace Garage
                         NumberWheel = UIHelper.AskWheel(),
                         YearModel = UIHelper.AskYearModel()
                     };
-
                     Console.WriteLine("\nIs it Made in Sweden?");
                     addMotorcycle.MadeInSweden = UIHelper.AskYesNo();
                     UIHelper.PrintSuccessfullAddedVehicle();
@@ -136,7 +134,6 @@ namespace Garage
                     return addMotorcycle;
 
                 case (int)Vehicle.TypeEnum.Car:
-
                     Car addCar = new()
                     {
                         Color = UIHelper.AskColor(),
@@ -145,7 +142,6 @@ namespace Garage
                         NumberWheel = UIHelper.AskWheel(),
                         Brand = UIHelper.AskBrandEnum()
                     };
-
                     Console.WriteLine("\nDoes it have more than 4 doors?");
                     addCar.Has4Doors = UIHelper.AskYesNo();
                     UIHelper.PrintSuccessfullAddedVehicle();
@@ -161,8 +157,7 @@ namespace Garage
                         LicenceNumber = UIHelper.AskLicenceNumber(),
                         NumberWheel = UIHelper.AskWheel()
                     };
-
-                    Console.WriteLine("\nIs Capacity more than 30?");
+                    Console.WriteLine("\nDoes your Bus have more than 30 passenger seats?");
                     addBus.PassengerCapacity = UIHelper.AskYesNo();
                     Console.WriteLine("\nIs it a school bus?");
                     addBus.SchoolBus = UIHelper.AskYesNo();
@@ -188,7 +183,7 @@ namespace Garage
                     return null;
             }
         }
-        public static Vehicle RemoveVehicle(List<Vehicle> vehicles)
+        public static Vehicle RemoveVehicle(List<Vehicle> vehicles)             //AH & FL
         {
             Console.Clear();
             PrintLogo();
@@ -207,15 +202,13 @@ namespace Garage
             {
                 return null;
             }
-
             else
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Successfully removed Vehicle from Garage.");
                 Console.ResetColor();
                 return vehicles[input - 1];
-
         }
-        public static (string, string) SearchMenu(List<Vehicle> vehicles)
+        public static (string, string) SearchMenu(List<Vehicle> vehicles)       //AH
         {
             int option;
             while (true)

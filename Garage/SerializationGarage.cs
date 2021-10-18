@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Garage
 {
-    public class SerializationGarage
+    public class SerializationGarage                                            //AH
     {
         
         public int Size { get; set; }

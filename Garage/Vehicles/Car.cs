@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Garage
 {
-    public class Car : Vehicle
+    public class Car : Vehicle                              //FL
     {
         public enum BrandEnum { Volvo = 1, Volkswagen, SAAB, BMW, AUDI, Porsche, }
         public BrandEnum Brand { get; set; }
@@ -20,7 +20,7 @@ namespace Garage
         public override string ToString()
         {
             return base.ToString() + $"\n\tBrand: {Brand}" +
-                $"\n\tHas more than 4 doors: {Has4Doors}";      //Yes,No
+                $"\n\tHas more than 4 doors: {Has4Doors}";
         }
     }
 }

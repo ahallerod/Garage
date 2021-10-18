@@ -8,40 +8,40 @@ namespace Garage
     public class Garage
     {
 
-        public IEnumerable<Vehicle> ParkedVehicles { get; set; }
-        public int Capacity { get; set; }
+        public IEnumerable<Vehicle> ParkedVehicles { get; set; }                            //AH
+        public int Capacity { get; set; }                                                   //AH
 
-        public Garage()
+        public Garage()                                                                     //AH
         {
             ParkedVehicles = new List<Vehicle>();
             Capacity = 0;
             ParkedVehicles.Count();
         }
 
-        public bool IsAnyVehicleParked() { return ParkedVehicles.Any(); }
-        public int NumberParkedVehicles() { return ParkedVehicles.Count(); }
-
-        public void AddVehicle(Vehicle vehicle)
+        public bool IsAnyVehicleParked() { return ParkedVehicles.Any(); }                   //AH
+        public int NumberParkedVehicles() { return ParkedVehicles.Count(); }                //AH
+        
+        public void AddVehicle(Vehicle vehicle)                                             //AH
         {
             ParkedVehicles = ParkedVehicles.Append(vehicle);
         }
 
-        public void RemoveVehicle(Vehicle vehicle)
+        public void RemoveVehicle(Vehicle vehicle)                                          //AH
         {
             ParkedVehicles = ParkedVehicles.Where(v => v.LicenceNumber != vehicle.LicenceNumber);
         }
 
-        public List<Vehicle> ListVehicles()
+        public List<Vehicle> ListVehicles()                                                 //AH
         {
             return ParkedVehicles.ToList();
         }
 
-        public List<Vehicle> ListTypeOfVehicles(Vehicle.TypeEnum type)
+        public List<Vehicle> ListTypeOfVehicles(Vehicle.TypeEnum type)                      //AH
         {
             return ParkedVehicles.Where(v => v.Type == type).ToList();
         }
-
-        public List<Vehicle> SearchVehicle(string searchType, string searchCriteria)
+        
+        public List<Vehicle> SearchVehicle(string searchType, string searchCriteria)        //AH & FL
         {
             List<Vehicle> searchResults = new();
             switch (searchType)
@@ -58,20 +58,17 @@ namespace Garage
                 case "Fuel":
                     searchResults = ParkedVehicles.Where(v => v.Fuel == (Vehicle.FuelEnum)Enum.Parse(typeof(Vehicle.FuelEnum), searchCriteria)).ToList();
                     break;
-
             }
-
             if (searchResults.Any()) return searchResults;
             return null;
         }
 
-        public SerializationGarage ConvertGarageForSerialization()
+        public SerializationGarage ConvertGarageForSerialization()                          //AH
         {
             return new SerializationGarage(this.Capacity, this.ParkedVehicles.ToList());
         }
 
-
-        public void LoadGarage(SerializationGarage sg)
+        public void LoadGarage(SerializationGarage sg)                                      //AH
         {
             this.Capacity = sg.Size;
             this.ParkedVehicles = sg.ParkedVehicles;

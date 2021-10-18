@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Garage
 {
-    public class Motorcycle : Vehicle
+    public class Motorcycle : Vehicle                              //FL
     {
         public string MadeInSweden { get; set; }
-
         public int YearModel { get; set; }
+
         public Motorcycle()
         {
             Type = TypeEnum.Motorcycle;
@@ -17,7 +17,7 @@ namespace Garage
 
         public override string ToString()
         {
-            return base.ToString() + $"\n\tProduced in Sweden: {MadeInSweden}" +           //yes, no
+            return base.ToString() + $"\n\tProduced in Sweden: {MadeInSweden}" +
                 $"\n\tModel Year: {YearModel}";
         }
     }

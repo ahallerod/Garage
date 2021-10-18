@@ -5,10 +5,9 @@ using System.Text;
 
 namespace Garage
 {
-    public class Bicycle : Vehicle
+    public class Bicycle : Vehicle                              //FL
     {
         public string IsMountainBike { get; set; }
-
         public string SuitsKids { get; set; }
 
         public Bicycle()
@@ -18,9 +17,8 @@ namespace Garage
 
         public override string ToString()
         {
-            return base.ToString() + $"\n\tIs Mountainbike: {IsMountainBike}" +     //Yes,No
-                $"\n\tIs suitable for kids: {SuitsKids}";                        //Yes,No
-            
+            return base.ToString() + $"\n\tIs Mountainbike: {IsMountainBike}" +
+                $"\n\tIs suitable for kids: {SuitsKids}";
         }
     }
 }

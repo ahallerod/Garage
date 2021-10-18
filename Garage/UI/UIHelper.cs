@@ -10,28 +10,28 @@ namespace Garage
     {
         //re-usable frequently variables.
         static string requestedInput;
-        public static void PrintSuccessfullAddedVehicle()
+        public static void PrintSuccessfullAddedVehicle()                       //FL
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Vehicle successfully parked in the Garage.");
             Console.ResetColor();
         }
-        public static void PrintBackOption()
+        public static void PrintBackOption()                                    //FL
         {
             Console.Write("\n<< Press ENTER to return to Main Menu >>");
             Console.ReadLine();
         }
-        public static void PrintNotValidOption()
+        public static void PrintNotValidOption()                                //FL
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Not a valid option. Please try again.");
             Console.ResetColor();
         }
-        public static void PrintTypeSelection()
+        public static void PrintTypeSelection()                                 //FL
         {
             Console.Write("Please make your selection: ");
         }
-        public static int MakeAndValidateSelection(int min, int max)
+        public static int MakeAndValidateSelection(int min, int max)            //AH
         {
             while (true)
             {
@@ -43,7 +43,7 @@ namespace Garage
                 PrintNotValidOption();
             }
         }
-        public static Car.BrandEnum AskBrandEnum()
+        public static Car.BrandEnum AskBrandEnum()                              //FL
         {
             int count = 0;
             Console.WriteLine("\nWhat Brand is your Car?");
@@ -63,7 +63,7 @@ namespace Garage
                 PrintNotValidOption();
             }
         }
-        public static Truck.LoadedWithEnum AskLoadedWith()
+        public static Truck.LoadedWithEnum AskLoadedWith()                      //FL
         {
             int count = 0;
             Console.WriteLine("\nWhat is your Truck loaded with?");
@@ -83,7 +83,7 @@ namespace Garage
                 PrintNotValidOption();
             }
         }
-        public static string AskYesNo()
+        public static string AskYesNo()                                         //FL
         {
             while (true)
             {
@@ -101,11 +101,11 @@ namespace Garage
                     requestedInput = "No";
                     return requestedInput;
                 }
+
                 PrintNotValidOption();
             }
-
         }
-        public static Vehicle.NumberWheelEnum AskWheel()
+        public static Vehicle.NumberWheelEnum AskWheel()                        //FL
         {
             int count = 0;
             Console.WriteLine("\nHow many Wheels does your Vehicle have?");
@@ -125,7 +125,7 @@ namespace Garage
                 PrintNotValidOption();
             }
         }
-        public static string AskLicenceNumber()
+        public static string AskLicenceNumber()                                 //FL
         {
             while (true)
             {
@@ -137,7 +137,7 @@ namespace Garage
                 PrintNotValidOption();
             }
         }
-        public static Vehicle.ColorEnum AskColor()
+        public static Vehicle.ColorEnum AskColor()                              //FL
         {
             int count = 0;
             Console.WriteLine("\nWhat is the Color of your Vehicle?");
@@ -163,7 +163,7 @@ namespace Garage
                 PrintNotValidOption();
             }
         }
-        public static Vehicle.TypeEnum AskType()
+        public static Vehicle.TypeEnum AskType()                                //FL
         {
             Console.WriteLine("\nWhat is the Type of your Vehicle?");
             for (int i = 1; i < Enum.GetValues(typeof(Vehicle.TypeEnum)).Length; i++)
@@ -181,7 +181,7 @@ namespace Garage
                 PrintNotValidOption();
             }
         }
-        public static Vehicle.FuelEnum AskFuel()
+        public static Vehicle.FuelEnum AskFuel()                                //FL
         {
             int count = 0;
             Console.WriteLine("\nWhat type of Fuel do you use?");
@@ -202,7 +202,7 @@ namespace Garage
                 PrintNotValidOption();
             }
         }
-        public static decimal AskTruckLength()
+        public static decimal AskTruckLength()                                  //FL
         {
             while (true)
             {
@@ -219,12 +219,10 @@ namespace Garage
                     }
                 }
                 else
-                {
                     PrintNotValidOption();
-                }
             }
         }
-        public static int AskYearModel()
+        public static int AskYearModel()                                        //FL
         {
             while (true)
             {
@@ -232,15 +230,14 @@ namespace Garage
                 const int MaxLength = 4;
                 const int MinYear = 1990;
                 requestedInput = Console.ReadLine().ToLower().Trim();
-                if(requestedInput.Length == MaxLength)                  //Check if input is exactly 4 characters
+                if (requestedInput.Length == MaxLength)                  //Check if input is exactly 4 characters
                 {
                     if (int.Parse(requestedInput) >= MinYear)           //Then check if it's bigger or equal to 1990
                         return int.Parse(requestedInput);               //If true, return
                 }
+
                 PrintNotValidOption();
             }
- 
         }
-        
     }
 }

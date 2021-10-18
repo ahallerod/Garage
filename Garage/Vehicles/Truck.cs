@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Garage
 {
-    public class Truck : Vehicle
+    public class Truck : Vehicle                              //FL
     {
         public decimal TruckLenght { get; set; }
         public enum LoadedWithEnum { Rocks = 1, Sand, Trash, Other}
