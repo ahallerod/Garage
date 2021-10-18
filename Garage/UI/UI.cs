@@ -192,7 +192,7 @@ namespace Garage
         {
             Console.Clear();
             PrintLogo();
-            Console.WriteLine("Remove a vehicle from the garage.");
+            Console.WriteLine("Remove a vehicle from the garage."); 
             int index = 0;
             foreach (Vehicle vehicle in vehicles)
             {
@@ -205,7 +205,7 @@ namespace Garage
             int input;
             if ((input = UIHelper.MakeAndValidateSelection(0, vehicles.Count)) == 0)
             {
-
+                return null;
             }
 
             else

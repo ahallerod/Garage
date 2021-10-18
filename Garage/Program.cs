@@ -36,10 +36,12 @@ namespace Garage
                     case 3:
                         //Remove Vehicles
                         if (!garage.IsAnyVehicleParked())
-                        {
                             Console.WriteLine("\n\tNo Vehicles parked in the Garage.");
-                        }
-                        else garage.RemoveVehicle(UI.RemoveVehicle(garage.ListVehicles()));
+
+                        Vehicle vehicle2remove = UI.RemoveVehicle(garage.ListVehicles()); //ask user for which vehicle to remove (null=user cancelled)
+                        if (vehicle2remove == null)
+                            break; //Break switch and return to main menu.
+                        garage.RemoveVehicle(vehicle2remove);
                         UIHelper.PrintBackOption();
                         break;
                     case 4:
