@@ -19,6 +19,7 @@ namespace Garage
         public static void PrintBackOption()
         {
             Console.Write("\n<< Press ENTER to return to Main Menu >>");
+            Console.ReadLine();
         }
         public static void PrintNotValidOption()
         {
@@ -164,13 +165,11 @@ namespace Garage
         }
         public static Vehicle.TypeEnum AskType()
         {
-            int count = -1;
             Console.WriteLine("\nWhat is the Type of your Vehicle?");
-            foreach (Vehicle.TypeEnum type in Enum.GetValues(typeof(Vehicle.TypeEnum)))
+            for (int i = 1; i < Enum.GetValues(typeof(Vehicle.TypeEnum)).Length; i++)
             {
-                count++;
-                Console.Write("[" + count + "] ");
-                Console.WriteLine(type);
+                Console.Write("[" + i + "] ");
+                Console.WriteLine((Vehicle.TypeEnum)i);
             }
             while (true)
             {
