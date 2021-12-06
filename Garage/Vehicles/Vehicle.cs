@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;            //https://stackoverflow.
 
 namespace Garage
 {
-    public class Vehicle                              //FL & AH
+    public class Vehicle
     {
         public enum TypeEnum { Vehicle, Bicycle, Motorcycle, Car, Bus, Truck }   //{ Vehicle{0}, Bicycle{1}, Motorcycle{2}, Car{3}, Bus{4}, Truck{5} }
         public TypeEnum Type { get; set; }

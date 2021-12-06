@@ -16,19 +16,19 @@ namespace Garage
             Console.Clear();
             Console.WriteLine(header);
         } 
-        public static void Header(int parked, int max)                          //AH
+        public static void Header(int parked, int max)
         {
             PrintLogo();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"\t\t\t {parked} Vehicles parked out of {max} parking spaces.");
             Console.ResetColor();
         }
-        public static void Intro()                                              //AH
+        public static void Intro()
         {
             PrintLogo();
             Console.WriteLine("\n\tWelcome to Garage Simulator 2021!");
         }
-        public static bool AskLoadGarage()                                      //AH
+        public static bool AskLoadGarage()
         {
             int option;
             while (true)
@@ -45,7 +45,7 @@ namespace Garage
             if (option == 1) return false;
             return true;
         }
-        public static int AskGarageSize()                                       //AH
+        public static int AskGarageSize()
         {
             Console.WriteLine("\nHow many parking spaces will this garage have?");
             Console.Write("Please insert a number. Minimum 10: ");
@@ -62,7 +62,7 @@ namespace Garage
                 UIHelper.PrintTypeSelection();
             }
         }
-        public static int PrintMainMenu()                                       //AH
+        public static int PrintMainMenu()
         {
             while (true)
             {
@@ -76,7 +76,7 @@ namespace Garage
                 return UIHelper.MakeAndValidateSelection(1, 5);
             }
         }
-        public static void ListVehicles(List<Vehicle> vehicles)                 //AH
+        public static void ListVehicles(List<Vehicle> vehicles)
         {
             Console.Clear();
             PrintLogo();
@@ -88,7 +88,7 @@ namespace Garage
                 Console.WriteLine($"{i}. {vehicle}");
             }
         }
-        public static Vehicle AddVehicle()                                      //FL
+        public static Vehicle AddVehicle()
         {
             Console.Clear();
             PrintLogo();
@@ -183,7 +183,7 @@ namespace Garage
                     return null;
             }
         }
-        public static Vehicle RemoveVehicle(List<Vehicle> vehicles)             //AH & FL
+        public static Vehicle RemoveVehicle(List<Vehicle> vehicles)
         {
             Console.Clear();
             PrintLogo();
@@ -208,7 +208,7 @@ namespace Garage
                 Console.ResetColor();
                 return vehicles[input - 1];
         }
-        public static (string, string) SearchMenu(List<Vehicle> vehicles)       //AH
+        public static (string, string) SearchMenu(List<Vehicle> vehicles)
         {
             int option;
             while (true)
@@ -228,10 +228,10 @@ namespace Garage
             switch (option)
             {
                 case 1:
-                    PrintEnumValues(Enum.GetValues(typeof(Vehicle.TypeEnum)));
+                    UIHelper.PrintEnumValues(Enum.GetValues(typeof(Vehicle.TypeEnum)));
                     return ("Type", UIHelper.AskType().ToString());
                 case 2:
-                    PrintEnumValues(Enum.GetValues(typeof(Vehicle.ColorEnum)));
+                    UIHelper.PrintEnumValues(Enum.GetValues(typeof(Vehicle.ColorEnum)));
                     return ("Color", UIHelper.AskColor().ToString());
                 case 3:
                     Console.WriteLine("Please type Licence Number to search for:");
@@ -242,34 +242,9 @@ namespace Garage
                 default:
                     break;
             }
-            //Should probably be removed:
-            //Console.ReadLine();
 
-            ////Dummy code, remove later
-            //Console.WriteLine("Please type color to search for:");
             return ("Color", Console.ReadLine());
         }
-        //public static void PrintHeaderText(string header)
-        //{
-        //    Console.WriteLine($" -- {header} --");
-        //}
-        private static void PrintEnumValues(Array e)
-        {
-            for (int i = 0; i >= e.Length; i++)
-            {
-                Console.Write("[" + i + "] ");
-                Console.WriteLine(e);
-            }
-        }
-        //public static void ParkedVehicleCounter(List<Vehicle> vehicles)
-        //{
-        //    int i = 0;
-        //    foreach (Vehicle vehicle in vehicles)
-        //    {
-        //        i++;
-        //        Console.WriteLine($"{i}");
-        //    }
-        //}
     }
 }
 

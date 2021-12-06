@@ -10,7 +10,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace Garage
 { 
-    class FileHandler                                                           //AH
+    class FileHandler
     {
         private const string filePath = @".\";
         public static void SaveGarage(Garage garage)
